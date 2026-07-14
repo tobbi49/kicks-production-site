@@ -455,3 +455,111 @@ button {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* ==========================================================================
+   Services
+   ========================================================================== */
+.services {
+  background-color: var(--color-white);
+  border-top: 1px solid rgba(29, 29, 27, 0.1);
+  padding-block: 5rem;
+}
+
+.services-headline {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: var(--color-dark-green);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.service-card {
+  padding: 1.75rem;
+  border: 1px solid rgba(29, 29, 27, 0.1);
+  border-top: 3px solid var(--color-green);
+}
+
+.service-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-green);
+  margin-bottom: 1rem;
+}
+
+.service-name {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-dark-green);
+}
+
+.service-description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+@media (min-width: 768px) {
+  .services-headline {
+    font-size: 2.75rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Why Us
+   ========================================================================== */
+.why-us {
+  background-color: var(--color-dark-green);
+  color: var(--color-white);
+  padding-block: 4rem;
+}
+
+.why-us-headline {
+  font-size: 1.85rem;
+  margin-bottom: 2rem;
+  color: var(--color-white);
+}
+
+.why-us-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.why-us-list li {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.why-us-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: var(--color-green);
+}
+
+@media (min-width: 768px) {
+  .why-us-headline {
+    font-size: 2.5rem;
+  }
+
+  .why-us-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 2rem;
+  }
+}
