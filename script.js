@@ -51,6 +51,9 @@
     const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
     const clamped = Math.min(Math.max(progress, 0), 1);
 
+    // TEMP: verification logging — remove once scroll motion is confirmed in a real browser
+    console.log('[void-blob] scroll progress:', clamped.toFixed(3));
+
     const scale = lerp(0.8, 1.4, clamped);
     const radius = lerp(50, 30, clamped);
     const drift = lerp(-15, 15, clamped);

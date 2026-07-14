@@ -37,10 +37,64 @@
   border-radius: 50%;
   filter: blur(50px);
   opacity: 0.3;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0.8);
   will-change: transform, border-radius;
+}
+
+/* Raise section content above the blob (blob sits between section
+   backgrounds and content). Header manages its own z-index. */
+section .container,
+footer .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Hand-drawn accents (brandbook line-art motifs, inline SVG)
+   ========================================================================== */
+.accent {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.accent-hero-arrow {
+  display: none;
+  width: 110px;
+  height: 110px;
+  color: var(--color-ink);
+  align-self: center;
+  margin-left: 1rem;
+  transform: rotate(-8deg);
+}
+
+.accent-about-swirl {
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  color: var(--color-white);
+  opacity: 0.12;
+  transform: translateY(-50%) rotate(15deg);
+}
+
+.accent-team-figure {
+  display: inline-block;
+  width: auto;
+  height: 1.2em;
+  vertical-align: -0.2em;
+  margin-left: 0.6rem;
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .accent-hero-arrow,
+  .accent-about-swirl {
+    display: block;
+  }
 }
 
 /* --- Reset (mobile-first) ------------------------------------------------ */
@@ -346,7 +400,7 @@ button {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--color-white);
   color: var(--color-ink);
   padding-block: calc(var(--header-height) + 1.5rem) 4rem;
 }
@@ -519,7 +573,7 @@ button {
    Why Us
    ========================================================================== */
 .why-us {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--color-white);
   color: var(--color-ink);
   padding-block: 4rem;
 }
@@ -713,7 +767,7 @@ button {
    CTA
    ========================================================================== */
 .cta {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--color-white);
   color: var(--color-ink);
   padding-block: 5rem;
   text-align: center;
@@ -751,7 +805,7 @@ button {
    Footer
    ========================================================================== */
 .site-footer {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--color-white);
   color: var(--color-ink);
   padding-block: 3rem;
 }
