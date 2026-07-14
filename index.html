@@ -16,19 +16,71 @@
 <body>
 
   <!-- HEADER / NAV: logo, primary nav links, mobile nav toggle, CTA button -->
-  <header id="header">
+  <header id="header" class="site-header">
+    <div class="container site-header-inner">
+      <a href="#hero" class="logo">kicks</a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <ul class="flex gap-lg">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#cta">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#cta">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- HERO: main headline, subheadline, primary CTA, hero visual/video -->
-  <section id="hero">
+  <section id="hero" class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-headline">Content that gets attention. Marketing that gets results.</h1>
+      <p class="hero-subheadline">We help ambitious brands grow through social media, video production, and digital marketing.</p>
+      <div class="hero-actions flex flex-wrap gap-md">
+        <a href="#cta" class="btn btn-primary">Get Your Free Growth Audit</a>
+        <a href="#work" class="btn btn-secondary">View Our Work</a>
+      </div>
+    </div>
   </section>
 
   <!-- TRUST BAR: logos of clients/brands worked with -->
-  <section id="trust-bar">
+  <section id="trust-bar" class="trust-bar">
+    <div class="container trust-bar-inner">
+      <span class="trust-label">Trusted by</span>
+      <ul class="trust-names">
+        <li>Erste Social Finance</li>
+        <li>Bitmovin</li>
+        <li>The Club @ Modul University</li>
+      </ul>
+    </div>
   </section>
 
   <!-- ABOUT: who Kicks is, Vienna-based team story, mission -->
-  <section id="about">
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="about-headline">Your outsourced content &amp; marketing team.</h2>
+      <p class="about-body">We're a Vienna-based team combining strategy, creative production, and digital marketing to help brands create content that performs.</p>
+      <div class="about-values">
+        <div class="value-prop">Fast communication</div>
+        <div class="value-prop">Transparent pricing</div>
+        <div class="value-prop">One team from idea to launch</div>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICES: list/grid of services offered (video, content, marketing, etc.) -->

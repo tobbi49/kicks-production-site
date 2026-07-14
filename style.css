@@ -18,6 +18,8 @@
   --gap-sm: 0.5rem;
   --gap-md: 1rem;
   --gap-lg: 2rem;
+
+  --header-height: 5.5rem;
 }
 
 /* --- Reset (mobile-first) ------------------------------------------------ */
@@ -61,6 +63,11 @@ ul, ol {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: var(--header-height);
 }
 
 img, picture, video, canvas, svg {
@@ -143,4 +150,308 @@ button {
 @media (min-width: 1024px) {
   .grid-3 { grid-template-columns: repeat(3, 1fr); }
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-green);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark-green);
+}
+
+/* ==========================================================================
+   Header / Nav
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: transparent;
+  transition: background-color 0.25s ease;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.25rem;
+}
+
+.site-header .logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  transition: color 0.25s ease;
+}
+
+.site-header .nav-links {
+  display: none;
+}
+
+.site-header .nav-links a {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-white);
+  transition: color 0.25s ease;
+}
+
+.site-header.scrolled {
+  background-color: var(--color-white);
+  border-bottom: 1px solid rgba(29, 29, 27, 0.1);
+}
+
+.site-header.scrolled .logo,
+.site-header.scrolled .nav-links a {
+  color: var(--color-dark-green);
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  margin-right: -0.75rem;
+  color: var(--color-white);
+  transition: color 0.25s ease;
+}
+
+.site-header.scrolled .nav-toggle {
+  color: var(--color-dark-green);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  background-color: var(--color-dark-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.mobile-nav.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mobile-nav a {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .site-header .nav-links {
+    display: block;
+  }
+
+  .nav-toggle,
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-dark-green);
+  color: var(--color-white);
+  padding-block: calc(var(--header-height) + 1.5rem) 4rem;
+}
+
+.hero-inner {
+  max-width: 760px;
+}
+
+.hero-headline {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subheadline {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .hero-headline {
+    font-size: 3.75rem;
+  }
+
+  .hero-subheadline {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   Trust bar
+   ========================================================================== */
+.trust-bar {
+  background-color: var(--color-white);
+  border-bottom: 1px solid rgba(29, 29, 27, 0.1);
+  padding-block: 2rem;
+}
+
+.trust-bar-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.trust-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(29, 29, 27, 0.5);
+}
+
+.trust-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+@media (min-width: 768px) {
+  .trust-bar-inner {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .trust-names {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+.about {
+  background-color: var(--color-white);
+  padding-block: 5rem;
+}
+
+.about-headline {
+  font-size: 2rem;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  color: var(--color-dark-green);
+}
+
+.about-body {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 620px;
+  margin-bottom: 3rem;
+  color: var(--color-ink);
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.value-prop {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-dark-green);
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-green);
+}
+
+@media (min-width: 768px) {
+  .about-headline {
+    font-size: 2.75rem;
+  }
+
+  .about-values {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
