@@ -44,8 +44,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--color-ink);
-  background-color: var(--color-white);
+  color: var(--color-white);
+  background-color: var(--color-ink);
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -166,26 +166,26 @@ button {
 }
 
 .btn-primary {
-  background-color: var(--color-white);
-  border-color: var(--color-white);
-  color: var(--color-ink);
+  background-color: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-ink);
-  border-color: var(--color-white);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
 }
 
 .btn-secondary {
   background-color: transparent;
-  border-color: var(--color-white);
-  color: var(--color-white);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-white);
-  color: var(--color-ink);
+  background-color: var(--color-ink);
+  color: var(--color-white);
 }
 
 /* ==========================================================================
@@ -211,7 +211,7 @@ button {
 .site-header .logo {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-white);
+  color: var(--color-ink);
   transition: color 0.25s ease;
 }
 
@@ -223,18 +223,18 @@ button {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--color-white);
+  color: var(--color-ink);
   transition: color 0.25s ease;
 }
 
 .site-header.scrolled {
-  background-color: var(--color-white);
-  border-bottom: 1px solid rgba(29, 29, 27, 0.1);
+  background-color: var(--color-ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .site-header.scrolled .logo,
 .site-header.scrolled .nav-links a {
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .nav-toggle {
@@ -246,12 +246,12 @@ button {
   width: 48px;
   height: 48px;
   margin-right: -0.75rem;
-  color: var(--color-white);
+  color: var(--color-ink);
   transition: color 0.25s ease;
 }
 
 .site-header.scrolled .nav-toggle {
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .nav-toggle span {
@@ -278,7 +278,7 @@ button {
   position: fixed;
   inset: 0;
   top: 0;
-  background-color: var(--color-ink);
+  background-color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -304,7 +304,7 @@ button {
 .mobile-nav a {
   font-family: var(--font-heading);
   font-size: 1.75rem;
-  color: var(--color-white);
+  color: var(--color-ink);
 }
 
 @media (min-width: 768px) {
@@ -325,8 +325,8 @@ button {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background-color: var(--color-ink);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-ink);
   padding-block: calc(var(--header-height) + 1.5rem) 4rem;
 }
 
@@ -344,7 +344,7 @@ button {
   font-size: 1.125rem;
   max-width: 520px;
   margin-bottom: 2.5rem;
-  color: var(--color-white);
+  color: var(--color-ink);
 }
 
 @media (min-width: 768px) {
@@ -361,8 +361,8 @@ button {
    Trust bar
    ========================================================================== */
 .trust-bar {
-  background-color: var(--color-white);
-  border-bottom: 1px solid rgba(29, 29, 27, 0.1);
+  background-color: var(--color-ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-block: 2rem;
 }
 
@@ -380,7 +380,7 @@ button {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(29, 29, 27, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .trust-names {
@@ -391,7 +391,7 @@ button {
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 @media (min-width: 768px) {
@@ -411,7 +411,7 @@ button {
    About
    ========================================================================== */
 .about {
-  background-color: var(--color-white);
+  background-color: var(--color-ink);
   padding-block: 5rem;
 }
 
@@ -419,7 +419,7 @@ button {
   font-size: 2rem;
   max-width: 600px;
   margin-bottom: 1.5rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .about-body {
@@ -427,7 +427,7 @@ button {
   font-size: 1.05rem;
   line-height: 1.6;
   max-width: 620px;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 @media (min-width: 768px) {
@@ -440,15 +440,15 @@ button {
    Services
    ========================================================================== */
 .services {
-  background-color: var(--color-white);
-  border-top: 1px solid rgba(29, 29, 27, 0.1);
+  background-color: var(--color-ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-block: 5rem;
 }
 
 .services-headline {
   font-size: 2rem;
   margin-bottom: 2.5rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .services-grid {
@@ -459,29 +459,29 @@ button {
 
 .service-card {
   padding: 1.75rem;
-  border: 1px solid rgba(29, 29, 27, 0.1);
-  border-top: 3px solid var(--color-ink);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--color-white);
 }
 
 .service-number {
   display: block;
   font-family: var(--font-heading);
   font-size: 1.25rem;
-  color: rgba(29, 29, 27, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 1rem;
 }
 
 .service-name {
   font-size: 1.35rem;
   margin-bottom: 0.75rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .service-description {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 @media (min-width: 768px) {
@@ -498,15 +498,15 @@ button {
    Why Us
    ========================================================================== */
 .why-us {
-  background-color: var(--color-ink);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-ink);
   padding-block: 4rem;
 }
 
 .why-us-headline {
   font-size: 1.85rem;
   margin-bottom: 2rem;
-  color: var(--color-white);
+  color: var(--color-ink);
 }
 
 .why-us-list {
@@ -530,7 +530,7 @@ button {
   top: 0.5em;
   width: 0.6rem;
   height: 0.6rem;
-  background-color: var(--color-white);
+  background-color: var(--color-ink);
 }
 
 @media (min-width: 768px) {
@@ -548,14 +548,14 @@ button {
    Work
    ========================================================================== */
 .work {
-  background-color: var(--color-white);
+  background-color: var(--color-ink);
   padding-block: 5rem;
 }
 
 .work-headline {
   font-size: 2rem;
   margin-bottom: 2.5rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .work-grid {
@@ -565,7 +565,7 @@ button {
 }
 
 .work-card {
-  border: 1px solid rgba(29, 29, 27, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .work-media {
@@ -573,30 +573,30 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-ink);
+  background-color: var(--color-white);
   border: 2px solid transparent;
   transition: border-color 0.25s ease;
 }
 
 .work-card:nth-child(even) .work-media {
-  background-color: var(--color-white);
-  border-color: rgba(29, 29, 27, 0.15);
+  background-color: var(--color-ink);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .work-media-label {
   font-family: var(--font-heading);
   font-size: 3rem;
-  color: var(--color-white);
+  color: var(--color-ink);
 }
 
 .work-card:nth-child(even) .work-media-label {
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .work-client {
   font-size: 1.35rem;
   margin: 1.5rem 1.5rem 0.5rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .work-description {
@@ -604,16 +604,16 @@ button {
   font-size: 1rem;
   line-height: 1.6;
   margin: 0 1.5rem 1.5rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 @media (hover: hover) {
   .work-card:nth-child(odd):hover .work-media {
-    border-color: var(--color-white);
+    border-color: var(--color-ink);
   }
 
   .work-card:nth-child(even):hover .work-media {
-    border-color: var(--color-ink);
+    border-color: var(--color-white);
   }
 }
 
@@ -631,15 +631,15 @@ button {
    Team
    ========================================================================== */
 .team {
-  background-color: var(--color-white);
-  border-top: 1px solid rgba(29, 29, 27, 0.1);
+  background-color: var(--color-ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-block: 5rem;
 }
 
 .team-headline {
   font-size: 2rem;
   margin-bottom: 2.5rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .team-grid {
@@ -657,24 +657,24 @@ button {
   height: 120px;
   margin: 0 auto 1.25rem;
   border-radius: 50%;
-  background-color: var(--color-ink);
+  background-color: var(--color-white);
 }
 
 .team-avatar-alt {
-  background-color: var(--color-white);
-  border: 2px solid var(--color-ink);
+  background-color: var(--color-ink);
+  border: 2px solid var(--color-white);
 }
 
 .team-name {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
-  color: var(--color-ink);
+  color: var(--color-white);
 }
 
 .team-role {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: rgba(29, 29, 27, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 @media (min-width: 768px) {
@@ -692,8 +692,8 @@ button {
    CTA
    ========================================================================== */
 .cta {
-  background-color: var(--color-ink);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-ink);
   padding-block: 5rem;
   text-align: center;
 }
@@ -705,14 +705,14 @@ button {
 
 .cta-headline {
   font-size: 2rem;
-  color: var(--color-white);
+  color: var(--color-ink);
   margin-bottom: 1.25rem;
 }
 
 .cta-body {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: var(--color-white);
+  color: var(--color-ink);
   margin-bottom: 2.5rem;
 }
 
@@ -730,8 +730,8 @@ button {
    Footer
    ========================================================================== */
 .site-footer {
-  background-color: var(--color-ink);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-ink);
   padding-block: 3rem;
 }
 
@@ -746,13 +746,13 @@ button {
 .footer-logo {
   font-family: var(--font-heading);
   font-size: 1.25rem;
-  color: var(--color-white);
+  color: var(--color-ink);
 }
 
 .footer-location {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(29, 29, 27, 0.6);
   margin-top: 0.25rem;
 }
 
@@ -765,13 +765,13 @@ button {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--color-white);
+  color: var(--color-ink);
 }
 
 .footer-copyright {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(29, 29, 27, 0.5);
 }
 
 @media (min-width: 768px) {
