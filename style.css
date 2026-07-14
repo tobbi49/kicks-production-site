@@ -563,3 +563,76 @@ button {
     gap: 1.5rem 2rem;
   }
 }
+
+/* ==========================================================================
+   Work
+   ========================================================================== */
+.work {
+  background-color: var(--color-white);
+  padding-block: 5rem;
+}
+
+.work-headline {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: var(--color-dark-green);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.work-card {
+  border: 1px solid rgba(29, 29, 27, 0.1);
+}
+
+.work-media {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-dark-green);
+  transition: background-color 0.25s ease;
+}
+
+.work-card:nth-child(even) .work-media {
+  background-color: var(--color-green);
+}
+
+.work-media-label {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-white);
+}
+
+.work-client {
+  font-size: 1.35rem;
+  margin: 1.5rem 1.5rem 0.5rem;
+  color: var(--color-dark-green);
+}
+
+.work-description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 1.5rem 1.5rem;
+  color: var(--color-ink);
+}
+
+@media (hover: hover) {
+  .work-card:hover .work-media {
+    background-color: var(--color-ink);
+  }
+}
+
+@media (min-width: 768px) {
+  .work-headline {
+    font-size: 2.75rem;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
