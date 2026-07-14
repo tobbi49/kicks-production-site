@@ -166,15 +166,15 @@ button {
 }
 
 .btn-primary {
-  background-color: var(--color-green);
-  border-color: var(--color-green);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-ink);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-white);
+  background-color: var(--color-ink);
   border-color: var(--color-white);
-  color: var(--color-green);
+  color: var(--color-white);
 }
 
 .btn-secondary {
@@ -185,7 +185,7 @@ button {
 
 .btn-secondary:hover {
   background-color: var(--color-white);
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 /* ==========================================================================
@@ -234,7 +234,7 @@ button {
 
 .site-header.scrolled .logo,
 .site-header.scrolled .nav-links a {
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .nav-toggle {
@@ -251,7 +251,7 @@ button {
 }
 
 .site-header.scrolled .nav-toggle {
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .nav-toggle span {
@@ -278,7 +278,7 @@ button {
   position: fixed;
   inset: 0;
   top: 0;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -325,7 +325,7 @@ button {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-ink);
   color: var(--color-white);
   padding-block: calc(var(--header-height) + 1.5rem) 4rem;
 }
@@ -419,7 +419,7 @@ button {
   font-size: 2rem;
   max-width: 600px;
   margin-bottom: 1.5rem;
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .about-body {
@@ -427,32 +427,12 @@ button {
   font-size: 1.05rem;
   line-height: 1.6;
   max-width: 620px;
-  margin-bottom: 3rem;
   color: var(--color-ink);
-}
-
-.about-values {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.value-prop {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--color-dark-green);
-  padding-top: 1rem;
-  border-top: 2px solid var(--color-green);
 }
 
 @media (min-width: 768px) {
   .about-headline {
     font-size: 2.75rem;
-  }
-
-  .about-values {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -468,7 +448,7 @@ button {
 .services-headline {
   font-size: 2rem;
   margin-bottom: 2.5rem;
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .services-grid {
@@ -480,21 +460,21 @@ button {
 .service-card {
   padding: 1.75rem;
   border: 1px solid rgba(29, 29, 27, 0.1);
-  border-top: 3px solid var(--color-green);
+  border-top: 3px solid var(--color-ink);
 }
 
 .service-number {
   display: block;
   font-family: var(--font-heading);
   font-size: 1.25rem;
-  color: var(--color-green);
+  color: rgba(29, 29, 27, 0.5);
   margin-bottom: 1rem;
 }
 
 .service-name {
   font-size: 1.35rem;
   margin-bottom: 0.75rem;
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .service-description {
@@ -518,7 +498,7 @@ button {
    Why Us
    ========================================================================== */
 .why-us {
-  background-color: var(--color-dark-green);
+  background-color: var(--color-ink);
   color: var(--color-white);
   padding-block: 4rem;
 }
@@ -550,7 +530,7 @@ button {
   top: 0.5em;
   width: 0.6rem;
   height: 0.6rem;
-  background-color: var(--color-green);
+  background-color: var(--color-white);
 }
 
 @media (min-width: 768px) {
@@ -575,7 +555,7 @@ button {
 .work-headline {
   font-size: 2rem;
   margin-bottom: 2.5rem;
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .work-grid {
@@ -593,12 +573,14 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-dark-green);
-  transition: background-color 0.25s ease;
+  background-color: var(--color-ink);
+  border: 2px solid transparent;
+  transition: border-color 0.25s ease;
 }
 
 .work-card:nth-child(even) .work-media {
-  background-color: var(--color-green);
+  background-color: var(--color-white);
+  border-color: rgba(29, 29, 27, 0.15);
 }
 
 .work-media-label {
@@ -607,10 +589,14 @@ button {
   color: var(--color-white);
 }
 
+.work-card:nth-child(even) .work-media-label {
+  color: var(--color-ink);
+}
+
 .work-client {
   font-size: 1.35rem;
   margin: 1.5rem 1.5rem 0.5rem;
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .work-description {
@@ -622,8 +608,12 @@ button {
 }
 
 @media (hover: hover) {
-  .work-card:hover .work-media {
-    background-color: var(--color-ink);
+  .work-card:nth-child(odd):hover .work-media {
+    border-color: var(--color-white);
+  }
+
+  .work-card:nth-child(even):hover .work-media {
+    border-color: var(--color-ink);
   }
 }
 
@@ -649,7 +639,7 @@ button {
 .team-headline {
   font-size: 2rem;
   margin-bottom: 2.5rem;
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .team-grid {
@@ -667,17 +657,18 @@ button {
   height: 120px;
   margin: 0 auto 1.25rem;
   border-radius: 50%;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-ink);
 }
 
 .team-avatar-alt {
-  background-color: var(--color-green);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-ink);
 }
 
 .team-name {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
-  color: var(--color-dark-green);
+  color: var(--color-ink);
 }
 
 .team-role {
@@ -701,7 +692,7 @@ button {
    CTA
    ========================================================================== */
 .cta {
-  background-color: var(--color-dark-green);
+  background-color: var(--color-ink);
   color: var(--color-white);
   padding-block: 5rem;
   text-align: center;
