@@ -238,6 +238,7 @@ button {
   font-size: 1rem;
   text-align: center;
   border: 2px solid transparent;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
 .btn-primary {
@@ -295,11 +296,27 @@ button {
 }
 
 .site-header .nav-links a {
+  position: relative;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--color-ink);
   transition: color 0.25s ease;
+}
+
+.site-header .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.2s ease;
+}
+
+.site-header .nav-links a:hover::after {
+  width: 100%;
 }
 
 .site-header.scrolled {
@@ -437,7 +454,8 @@ button {
    ========================================================================== */
 .trust-bar {
   background-color: var(--color-ink);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   padding-block: 2rem;
 }
 
@@ -536,13 +554,23 @@ button {
   padding: 1.75rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top: 3px solid var(--color-white);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .service-card:hover {
+    border-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
 }
 
 .service-number {
   display: block;
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 1rem;
 }
 
@@ -575,37 +603,49 @@ button {
 .why-us {
   background-color: var(--color-white);
   color: var(--color-ink);
-  padding-block: 4rem;
+  padding-block: 3.5rem;
 }
 
 .why-us-headline {
   font-size: 1.85rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   color: var(--color-ink);
 }
 
-.why-us-list {
+.why-us-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
-.why-us-list li {
+.why-us-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.15rem 1.4rem;
+  border: 1px solid var(--color-ink);
+}
+
+.why-us-index {
+  flex-shrink: 0;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1.05rem;
-  padding-left: 1.5rem;
-  position: relative;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: rgba(29, 29, 27, 0.16);
 }
 
-.why-us-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 0.6rem;
-  height: 0.6rem;
-  background-color: var(--color-ink);
+.why-us-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-ink);
+}
+
+@media (min-width: 640px) {
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 768px) {
@@ -613,9 +653,9 @@ button {
     font-size: 2.5rem;
   }
 
-  .why-us-list {
+  .why-us-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem 2rem;
+    gap: 1.25rem;
   }
 }
 
@@ -641,6 +681,7 @@ button {
 
 .work-card {
   border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
 .work-media {
@@ -650,7 +691,7 @@ button {
   justify-content: center;
   background-color: var(--color-white);
   border: 2px solid transparent;
-  transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease, transform 0.35s ease;
 }
 
 .work-card:nth-child(even) .work-media {
@@ -683,6 +724,10 @@ button {
 }
 
 @media (hover: hover) {
+  .work-card:hover .work-media {
+    transform: scale(1.04);
+  }
+
   .work-card:nth-child(odd):hover .work-media {
     border-color: var(--color-ink);
   }
@@ -728,16 +773,30 @@ button {
 }
 
 .team-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 120px;
   height: 120px;
   margin: 0 auto 1.25rem;
   border-radius: 50%;
   background-color: var(--color-white);
+  overflow: hidden;
 }
 
 .team-avatar-alt {
   background-color: var(--color-ink);
   border: 2px solid var(--color-white);
+}
+
+.avatar-doodle {
+  width: 58%;
+  height: 58%;
+  color: var(--color-ink);
+}
+
+.team-avatar-alt .avatar-doodle {
+  color: var(--color-white);
 }
 
 .team-name {
@@ -815,7 +874,7 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .footer-logo {
@@ -831,15 +890,61 @@ button {
   margin-top: 0.25rem;
 }
 
-.footer-links {
+.footer-nav ul,
+.footer-links,
+.footer-social {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
 }
 
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-nav a,
 .footer-links a {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
+  color: var(--color-ink);
+}
+
+.footer-social a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: rgba(29, 29, 27, 0.6);
+  transition: color 0.18s ease;
+}
+
+.footer-nav a,
+.footer-links a {
+  position: relative;
+}
+
+.footer-nav a::after,
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.2s ease;
+}
+
+.footer-nav a:hover::after,
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-social a:hover {
   color: var(--color-ink);
 }
 
@@ -852,16 +957,31 @@ button {
 @media (min-width: 768px) {
   .site-footer-inner {
     flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-between;
     text-align: left;
+    row-gap: 2rem;
   }
 
   .footer-brand {
     text-align: left;
   }
 
+  .footer-nav ul,
+  .footer-links,
+  .footer-social {
+    justify-content: flex-start;
+  }
+
+  .footer-contact {
+    align-items: flex-end;
+  }
+
   .footer-copyright {
-    order: 3;
+    order: 4;
+    width: 100%;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(29, 29, 27, 0.12);
   }
 }

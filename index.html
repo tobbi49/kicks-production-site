@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -117,12 +117,27 @@
   <section id="why-us" class="why-us">
     <div class="container">
       <h2 class="why-us-headline">Why brands choose Kicks</h2>
-      <ul class="why-us-list">
-        <li>End-to-end execution</li>
-        <li>Fast turnaround</li>
-        <li>Direct communication</li>
-        <li>Transparent pricing</li>
-        <li>Results-focused approach</li>
+      <ul class="why-us-grid">
+        <li class="why-us-item">
+          <span class="why-us-index">01</span>
+          <span class="why-us-label">End-to-end execution</span>
+        </li>
+        <li class="why-us-item">
+          <span class="why-us-index">02</span>
+          <span class="why-us-label">Fast turnaround</span>
+        </li>
+        <li class="why-us-item">
+          <span class="why-us-index">03</span>
+          <span class="why-us-label">Direct communication</span>
+        </li>
+        <li class="why-us-item">
+          <span class="why-us-index">04</span>
+          <span class="why-us-label">Transparent pricing</span>
+        </li>
+        <li class="why-us-item">
+          <span class="why-us-index">05</span>
+          <span class="why-us-label">Results-focused approach</span>
+        </li>
       </ul>
     </div>
   </section>
@@ -188,6 +203,9 @@
         <div class="team-member">
           <div class="team-avatar">
             <!-- TODO: replace with Alex headshot -->
+            <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 58 C30 40 38 40 46 58 C54 76 62 76 70 58 C74 49 78 46 82 50" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <h3 class="team-name">Alex</h3>
           <p class="team-role">Project Management</p>
@@ -195,6 +213,9 @@
         <div class="team-member">
           <div class="team-avatar team-avatar-alt">
             <!-- TODO: replace with Arina headshot -->
+            <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 26 C34 30 30 52 46 56 C62 60 60 76 44 76 M50 26 C66 30 70 52 54 56" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <h3 class="team-name">Arina</h3>
           <p class="team-role">Design</p>
@@ -202,6 +223,9 @@
         <div class="team-member">
           <div class="team-avatar">
             <!-- TODO: replace with Yakov headshot -->
+            <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28 30 C28 62 40 74 50 74 C60 74 72 62 72 30 M40 46 C46 54 54 54 60 46" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <h3 class="team-name">Yakov</h3>
           <p class="team-role">Production &amp; Social Media</p>
@@ -209,6 +233,9 @@
         <div class="team-member">
           <div class="team-avatar team-avatar-alt">
             <!-- TODO: replace with Gleb headshot -->
+            <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 40 C42 24 58 24 70 40 C78 51 72 66 58 70 M50 52 L50 78" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <h3 class="team-name">Gleb</h3>
           <p class="team-role">Digital Marketing</p>
@@ -233,10 +260,28 @@
         <span class="footer-logo">kicks</span>
         <p class="footer-location">Vienna, Austria</p>
       </div>
-      <ul class="footer-links">
-        <li><a href="mailto:hello@kicks-vie.com">Email</a></li>
-        <li><a href="https://wa.me/4367762319053" target="_blank" rel="noopener">WhatsApp</a></li>
-      </ul>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <ul class="footer-links">
+          <li><a href="mailto:hello@kicks-vie.com">Email</a></li>
+          <li><a href="https://wa.me/4367762319053" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+        <!-- TODO: replace "#" with real Instagram / LinkedIn / TikTok profile URLs for the Kicks agency account -->
+        <ul class="footer-social">
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+
       <p class="footer-copyright">© 2026 Kicks. All rights reserved.</p>
     </div>
   </footer>
