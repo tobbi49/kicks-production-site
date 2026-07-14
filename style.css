@@ -636,3 +636,166 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ==========================================================================
+   Team
+   ========================================================================== */
+.team {
+  background-color: var(--color-white);
+  border-top: 1px solid rgba(29, 29, 27, 0.1);
+  padding-block: 5rem;
+}
+
+.team-headline {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: var(--color-dark-green);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background-color: var(--color-dark-green);
+}
+
+.team-avatar-alt {
+  background-color: var(--color-green);
+}
+
+.team-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-dark-green);
+}
+
+.team-role {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(29, 29, 27, 0.6);
+}
+
+@media (min-width: 768px) {
+  .team-headline {
+    font-size: 2.75rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   CTA
+   ========================================================================== */
+.cta {
+  background-color: var(--color-dark-green);
+  color: var(--color-white);
+  padding-block: 5rem;
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.cta-headline {
+  font-size: 2rem;
+  color: var(--color-white);
+  margin-bottom: 1.25rem;
+}
+
+.cta-body {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-white);
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .cta-headline {
+    font-size: 2.75rem;
+  }
+
+  .cta-body {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-ink);
+  color: var(--color-white);
+  padding-block: 3rem;
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-white);
+}
+
+.footer-location {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-white);
+}
+
+.footer-copyright {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 768px) {
+  .site-footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .footer-brand {
+    text-align: left;
+  }
+
+  .footer-copyright {
+    order: 3;
+  }
+}
