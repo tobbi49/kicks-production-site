@@ -31,3 +31,43 @@
     link.addEventListener('click', closeMobileNav);
   });
 })();
+
+(function () {
+  const blob = document.getElementById('void-blob');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!blob || prefersReducedMotion) {
+    return;
+  }
+
+  function lerp(start, end, progress) {
+    return start + (end - start) * progress;
+  }
+
+  let ticking = false;
+
+  function updateBlob() {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+    const clamped = Math.min(Math.max(progress, 0), 1);
+
+    const scale = lerp(0.8, 1.4, clamped);
+    const radius = lerp(50, 30, clamped);
+    const drift = lerp(-15, 15, clamped);
+
+    blob.style.transform = `translate(-50%, calc(-50% + ${drift}vh)) scale(${scale})`;
+    blob.style.borderRadius = `${radius}%`;
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateBlob);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateBlob();
+})();

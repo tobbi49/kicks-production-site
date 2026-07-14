@@ -22,6 +22,27 @@
   --header-height: 5.5rem;
 }
 
+/* ==========================================================================
+   Void blob — scroll-driven background effect
+   ========================================================================== */
+#void-blob {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, var(--color-ink) 0%, transparent 65%);
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.3;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.8);
+  will-change: transform, border-radius;
+}
+
 /* --- Reset (mobile-first) ------------------------------------------------ */
 *,
 *::before,
@@ -325,7 +346,7 @@ button {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.95);
   color: var(--color-ink);
   padding-block: calc(var(--header-height) + 1.5rem) 4rem;
 }
@@ -498,7 +519,7 @@ button {
    Why Us
    ========================================================================== */
 .why-us {
-  background-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.95);
   color: var(--color-ink);
   padding-block: 4rem;
 }
@@ -692,7 +713,7 @@ button {
    CTA
    ========================================================================== */
 .cta {
-  background-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.95);
   color: var(--color-ink);
   padding-block: 5rem;
   text-align: center;
@@ -730,7 +751,7 @@ button {
    Footer
    ========================================================================== */
 .site-footer {
-  background-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.95);
   color: var(--color-ink);
   padding-block: 3rem;
 }
