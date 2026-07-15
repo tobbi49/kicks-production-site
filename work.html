@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=14">
 
   <!-- Motion system: GSAP + ScrollTrigger + Lenis smooth scroll (all deferred, execute in document order) -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
@@ -117,25 +117,8 @@
     </div>
   </section>
 
-  <!-- THE CLUB @ MODUL UNIVERSITY -->
-  <section id="club" class="portfolio-section" data-reveal>
-    <div class="container">
-      <div class="portfolio-head">
-        <h2 class="portfolio-name" data-reveal-heading>The Club @ Modul University</h2>
-        <p class="portfolio-desc" data-reveal-item>Built a 500+ member hospitality community through social media, paid ads, and email marketing.</p>
-      </div>
-      <!-- Image gallery. onerror hides any item whose file is missing (no broken icons). -->
-      <div class="gallery-grid" data-reveal-item>
-        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-1.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-2.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-3.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-4.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- KICKS -->
-  <section id="kicks" class="portfolio-section portfolio-section--dark" data-reveal>
+  <section id="kicks" class="portfolio-section" data-reveal>
     <div class="container">
       <div class="portfolio-head">
         <h2 class="portfolio-name" data-reveal-heading>Kicks</h2>
@@ -158,6 +141,22 @@
           </video>
         </div>
         <div class="gallery-item"><img class="gallery-media" src="assets/images/kicks-use-6.png" alt="Kicks community artwork" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CLUB @ MODUL UNIVERSITY -->
+  <section id="club" class="portfolio-section portfolio-section--dark" data-reveal>
+    <div class="container">
+      <div class="portfolio-head">
+        <h2 class="portfolio-name" data-reveal-heading>The Club @ Modul University</h2>
+        <p class="portfolio-desc" data-reveal-item>Built a 500+ member hospitality community through social media, paid ads, and email marketing.</p>
+      </div>
+      <!-- Image gallery (3 posters). onerror hides any item whose file is missing (no broken icons). -->
+      <div class="gallery-grid gallery-grid--trio" data-reveal-item>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-1.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-2.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-3.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
       </div>
     </div>
   </section>
@@ -221,18 +220,12 @@
           <li><a href="mailto:hello@kicks-vie.com">Email</a></li>
           <li><a href="https://wa.me/4367762319053" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
-        <!-- TODO: replace "#" with real Instagram / LinkedIn / TikTok profile URLs for the Kicks agency account -->
-        <ul class="footer-social">
-          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="#" target="_blank" rel="noopener">TikTok</a></li>
-        </ul>
       </div>
 
       <p class="footer-copyright">© 2026 Kicks. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="script.js?v=7" defer></script>
+  <script src="script.js?v=8" defer></script>
 </body>
 </html>

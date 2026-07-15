@@ -382,3 +382,76 @@ var KicksMotion = (function () {
     );
   });
 })();
+
+/*
+ * Gallery lightbox: click any still image in a gallery (img.gallery-media) to
+ * view it enlarged, centered over a dark backdrop. A single overlay element is
+ * injected once and reused — it just swaps in the src/alt of whichever image
+ * was clicked. Native <video> gallery items and the YouTube facade cards are
+ * left alone (neither is an img.gallery-media), keeping their play behaviour.
+ * Closes on the × button, a backdrop click, or Escape; body scroll is locked
+ * while open. The fade is CSS-driven and disabled under reduced motion.
+ */
+(function () {
+  const images = document.querySelectorAll('img.gallery-media');
+  if (!images.length) {
+    return;
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Enlarged image');
+
+  const img = document.createElement('img');
+  img.className = 'lightbox-img';
+  img.alt = '';
+
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'lightbox-close';
+  closeBtn.setAttribute('aria-label', 'Close');
+  closeBtn.innerHTML = '&times;';
+
+  overlay.appendChild(img);
+  overlay.appendChild(closeBtn);
+  document.body.appendChild(overlay);
+
+  function openLightbox(src, alt) {
+    img.src = src;
+    img.alt = alt || '';
+    overlay.classList.add('is-open');
+    document.body.classList.add('lightbox-open');
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('is-open');
+    document.body.classList.remove('lightbox-open');
+  }
+
+  // Delegate from each gallery grid so newly-swapped images work too.
+  document.querySelectorAll('.gallery-grid').forEach((grid) => {
+    grid.addEventListener('click', (e) => {
+      const target = e.target.closest('img.gallery-media');
+      if (target) {
+        openLightbox(target.currentSrc || target.src, target.alt);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // Backdrop click (anywhere outside the image itself) closes.
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+      closeLightbox();
+    }
+  });
+})();
