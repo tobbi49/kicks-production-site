@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -148,18 +148,20 @@
       <h2 class="work-headline">Selected projects</h2>
       <div class="work-grid">
         <article class="work-card">
-          <div class="work-media">
-            <!-- TODO: replace with Erste Social Finance reel thumbnail/video -->
+          <div class="work-media" data-video-id="1QioYN3ogtGZ_f2kMqUXS6ZYj4Jar802e">
+            <!-- TODO: replace placeholder with real thumbnail frame from the Erste Social Finance video -->
             <span class="work-media-label">E</span>
+            <button class="work-play" type="button" aria-label="Play Erste Social Finance video"></button>
           </div>
           <h3 class="work-client">Erste Social Finance</h3>
           <p class="work-description">Campaign video production for the Humanizing Impact Finance initiative.</p>
         </article>
 
         <article class="work-card">
-          <div class="work-media">
-            <!-- TODO: replace with Bitmovin thumbnail/video -->
+          <div class="work-media" data-video-id="19VPjTex72fTitBTbrqcSmG7zHZF5AsAr">
+            <!-- TODO: replace placeholder with real thumbnail frame from the Bitmovin video -->
             <span class="work-media-label">B</span>
+            <button class="work-play" type="button" aria-label="Play Bitmovin video"></button>
           </div>
           <h3 class="work-client">Bitmovin</h3>
           <p class="work-description">Video production and LinkedIn content supporting continuous lead generation.</p>
@@ -167,7 +169,7 @@
 
         <article class="work-card">
           <div class="work-media">
-            <!-- TODO: replace with The Club @ Modul University thumbnail/video -->
+            <!-- TODO: assets pending — replace with The Club @ Modul University thumbnail/video -->
             <span class="work-media-label">C</span>
           </div>
           <h3 class="work-client">The Club @ Modul University</h3>
@@ -176,11 +178,33 @@
 
         <article class="work-card">
           <div class="work-media">
-            <!-- TODO: replace with Kicks football community thumbnail/video -->
+            <!-- TODO: replace placeholder with real poster image (poster-kicks-1.jpg), no video for this card -->
             <span class="work-media-label">K</span>
           </div>
           <h3 class="work-client">Kicks</h3>
           <p class="work-description">Grew one of Vienna's largest football communities to 500+ members.</p>
+        </article>
+
+        <article class="work-card">
+          <div class="work-media" data-video-id="1Hmr9TETGfVdzjdhewE_7jAkoPpFeeTtr">
+            <!-- TODO: replace placeholder with real thumbnail frame from the Mastercard video -->
+            <span class="work-media-label">M</span>
+            <button class="work-play" type="button" aria-label="Play Mastercard video"></button>
+          </div>
+          <h3 class="work-client">Mastercard</h3>
+          <p class="work-description">Full production — from scenario and footage to post-production.</p>
+        </article>
+
+        <article class="work-card">
+          <div class="work-media">
+            <!-- TODO: assets pending — showcase tile, no video yet. Hand-drawn clapperboard mark, not a client initial -->
+            <svg class="work-media-mark" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <rect x="14" y="34" width="52" height="30" rx="2" stroke="currentColor" stroke-width="4" fill="none" stroke-linejoin="round"/>
+              <path d="M14 34 L64 20 M24 31 L30 18 M38 27 L44 14 M52 23 L58 10" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="work-client">Cinematic Work</h3>
+          <p class="work-description">Exploring visual style through short-form filmmaking.</p>
         </article>
       </div>
     </div>
@@ -286,6 +310,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

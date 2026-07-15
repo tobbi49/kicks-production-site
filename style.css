@@ -685,6 +685,7 @@ button {
 }
 
 .work-media {
+  position: relative;
   aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
@@ -692,6 +693,60 @@ button {
   background-color: var(--color-white);
   border: 2px solid transparent;
   transition: border-color 0.25s ease, transform 0.35s ease;
+}
+
+.work-media[data-video-id] {
+  cursor: pointer;
+}
+
+.work-media iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Click-to-load facade: flat play button (circle + triangle, no shadow) */
+.work-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.work-play::after {
+  content: "";
+  margin-left: 5px;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent var(--color-white);
+}
+
+.work-card:nth-child(even) .work-play {
+  background-color: var(--color-white);
+}
+
+.work-card:nth-child(even) .work-play::after {
+  border-left-color: var(--color-ink);
+}
+
+.work-media-mark {
+  width: 72px;
+  height: 72px;
+  color: var(--color-ink);
+}
+
+.work-card:nth-child(even) .work-media-mark {
+  color: var(--color-white);
 }
 
 .work-card:nth-child(even) .work-media {
@@ -728,6 +783,11 @@ button {
     transform: scale(1.04);
   }
 
+  /* Once the iframe is loaded, stop zooming the media block */
+  .work-card:hover .work-media.is-playing {
+    transform: none;
+  }
+
   .work-card:nth-child(odd):hover .work-media {
     border-color: var(--color-ink);
   }
@@ -744,6 +804,12 @@ button {
 
   .work-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .work-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

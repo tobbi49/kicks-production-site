@@ -74,3 +74,31 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   updateBlob();
 })();
+
+/*
+ * Click-to-load video facade (Google Drive embeds).
+ * No iframe is created until the user clicks — keeps initial page load light.
+ */
+(function () {
+  function loadDriveVideo(media, fileId) {
+    if (media.classList.contains('is-playing')) {
+      return;
+    }
+
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
+    iframe.width = '100%';
+    iframe.height = '100%';
+    iframe.allow = 'autoplay';
+    iframe.setAttribute('allowfullscreen', '');
+
+    media.classList.add('is-playing');
+    media.replaceChildren(iframe);
+  }
+
+  document.querySelectorAll('.work-media[data-video-id]').forEach((media) => {
+    media.addEventListener('click', () => {
+      loadDriveVideo(media, media.dataset.videoId);
+    });
+  });
+})();
