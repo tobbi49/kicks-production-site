@@ -90,9 +90,36 @@ footer .container {
   color: var(--color-white);
 }
 
+.accent-services-doodle {
+  display: inline-block;
+  width: 7.5rem;
+  height: auto;
+  vertical-align: -0.35em;
+  margin-left: 0.75rem;
+  color: var(--color-white);
+}
+
+.accent-whyus-doodle {
+  display: inline-block;
+  width: 2.25rem;
+  height: auto;
+  vertical-align: -0.3em;
+  margin-left: 0.6rem;
+  color: var(--color-ink);
+}
+
+.accent-cta-doodle {
+  display: none;
+  width: 5.5rem;
+  height: auto;
+  color: var(--color-ink);
+  transform: scaleX(-1) rotate(-6deg);
+}
+
 @media (min-width: 768px) {
   .accent-hero-arrow,
-  .accent-about-swirl {
+  .accent-about-swirl,
+  .accent-cta-doodle {
     display: block;
   }
 }
@@ -431,6 +458,10 @@ button {
   margin-bottom: 1.5rem;
 }
 
+.hero-word {
+  display: inline-block;
+}
+
 .hero-subheadline {
   font-family: var(--font-body);
   font-size: 1.125rem;
@@ -487,6 +518,42 @@ button {
   color: var(--color-white);
 }
 
+.trust-name-item {
+  position: relative;
+}
+
+/* Hover preview: desktop/fine-pointer only, never on touch devices */
+.trust-preview {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trust-preview {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.75rem);
+    width: 240px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px) rotate(-2deg) scale(0.96);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+  }
+
+  .trust-preview img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-white);
+    background-color: var(--color-ink);
+  }
+
+  .trust-name-item:hover .trust-preview {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotate(-2deg) scale(1);
+  }
+}
+
 @media (min-width: 768px) {
   .trust-bar-inner {
     flex-direction: row;
@@ -506,6 +573,8 @@ button {
 .about {
   background-color: var(--color-ink);
   padding-block: 5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-headline {
@@ -526,6 +595,113 @@ button {
 @media (min-width: 768px) {
   .about-headline {
     font-size: 2.75rem;
+  }
+}
+
+/* ==========================================================================
+   Scattered work images — decorative tilted accents with scroll parallax
+   ========================================================================== */
+.scatter-img-wrap {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+}
+
+.scatter-img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border: 1px solid var(--color-ink);
+  background-color: var(--color-white);
+}
+
+.scatter-img-about-1 {
+  top: 8%;
+  right: 4%;
+  width: 200px;
+  transform: rotate(-3deg);
+}
+
+.scatter-img-about-1 .scatter-img {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.scatter-img-about-2 {
+  bottom: 4%;
+  right: 16%;
+  width: 160px;
+  transform: rotate(2.5deg);
+}
+
+.scatter-img-about-2 .scatter-img {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.scatter-img-cta {
+  top: -4%;
+  right: 2%;
+  width: 220px;
+  transform: rotate(3deg);
+}
+
+@media (min-width: 768px) {
+  .scatter-img-wrap {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Marquee — pure CSS infinite scroll strip
+   ========================================================================== */
+.marquee {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: var(--color-ink);
+  border-top: 1px solid var(--color-white);
+  border-bottom: 1px solid var(--color-white);
+  padding-block: 0.75rem;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 8vw;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--color-white);
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .marquee-item {
+    font-size: 5vw;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
   }
 }
 
@@ -765,9 +941,19 @@ button {
 }
 
 .work-client {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 1.35rem;
   margin: 1.5rem 1.5rem 0.5rem;
   color: var(--color-white);
+}
+
+.work-arrow {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .work-description {
@@ -780,7 +966,7 @@ button {
 
 @media (hover: hover) {
   .work-card:hover .work-media {
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
 
   /* Once the iframe is loaded, stop zooming the media block */
@@ -794,6 +980,11 @@ button {
 
   .work-card:nth-child(even):hover .work-media {
     border-color: var(--color-white);
+  }
+
+  .work-card:hover .work-arrow {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -914,6 +1105,12 @@ button {
   font-size: 1.1rem;
   color: var(--color-ink);
   margin-bottom: 2.5rem;
+}
+
+.cta-btn-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 @media (min-width: 768px) {

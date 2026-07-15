@@ -11,7 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
+
+  <!-- Motion system: GSAP + ScrollTrigger + Lenis smooth scroll (all deferred, execute in document order) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js"></script>
 </head>
 <body>
 
@@ -66,45 +71,78 @@
   </section>
 
   <!-- TRUST BAR: logos of clients/brands worked with -->
-  <section id="trust-bar" class="trust-bar">
+  <section id="trust-bar" class="trust-bar" data-reveal>
     <div class="container trust-bar-inner">
-      <span class="trust-label">Trusted by</span>
+      <span class="trust-label" data-reveal-heading>Trusted by</span>
       <ul class="trust-names">
-        <li>Erste Social Finance</li>
-        <li>Bitmovin</li>
-        <li>The Club @ Modul University</li>
+        <li class="trust-name-item" data-reveal-item>
+          Erste Social Finance
+          <!-- TODO: swap placeholder preview for real Erste Social Finance work frame -->
+          <span class="trust-preview"><img src="/assets/images/poster-kicts-1.jpg" alt="" loading="lazy"></span>
+        </li>
+        <li class="trust-name-item" data-reveal-item>
+          Bitmovin
+          <!-- TODO: swap placeholder preview for real Bitmovin work frame -->
+          <span class="trust-preview"><img src="/assets/images/artboard-1.jpg" alt="" loading="lazy"></span>
+        </li>
+        <li class="trust-name-item" data-reveal-item>
+          The Club @ Modul University
+          <!-- TODO: swap placeholder preview for real The Club @ Modul University work frame -->
+          <span class="trust-preview"><img src="/assets/images/artboard-2.jpg" alt="" loading="lazy"></span>
+        </li>
       </ul>
     </div>
   </section>
 
   <!-- ABOUT: who Kicks is, Vienna-based team story, mission -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="about-headline">Your outsourced content &amp; marketing team.</h2>
-      <p class="about-body">We're a Vienna-based team combining strategy, creative production, and digital marketing to help brands create content that performs.</p>
+  <section id="about" class="about" data-reveal>
+    <div class="container about-inner">
+      <div class="about-copy">
+        <h2 class="about-headline" data-reveal-heading>Your outsourced content &amp; marketing team.</h2>
+        <p class="about-body" data-reveal-item>We're a Vienna-based team combining strategy, creative production, and digital marketing to help brands create content that performs.</p>
+      </div>
       <!-- Hand-drawn swirl texture accent (low opacity, decorative) -->
       <svg class="accent accent-about-swirl" viewBox="0 0 120 120" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <path d="M60 60 C60 48 76 46 80 58 C84 72 66 82 52 74 C36 65 40 42 58 34 C80 24 102 42 98 66 C94 92 64 104 40 92" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
+      <div class="scatter-img-wrap scatter-img-about-1" aria-hidden="true">
+        <img class="scatter-img" src="/assets/images/artboard-1.jpg" alt="" loading="lazy">
+      </div>
+      <div class="scatter-img-wrap scatter-img-about-2" aria-hidden="true">
+        <img class="scatter-img" src="/assets/images/poster-kicts-1.jpg" alt="" loading="lazy">
+      </div>
     </div>
   </section>
 
+  <!-- MARQUEE: full-width auto-scrolling text band, pure CSS loop -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">social media ✳ video production ✳ email marketing ✳ kicks ✳</span>
+      <span class="marquee-item">social media ✳ video production ✳ email marketing ✳ kicks ✳</span>
+    </div>
+  </div>
+
   <!-- SERVICES: list/grid of services offered (video, content, marketing, etc.) -->
-  <section id="services" class="services">
+  <section id="services" class="services" data-reveal>
     <div class="container">
-      <h2 class="services-headline">What we do</h2>
+      <h2 class="services-headline" data-reveal-heading>What we do
+        <!-- Hand-drawn scribble underline accent -->
+        <svg class="accent accent-services-doodle" viewBox="0 0 220 40" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 24 C40 8 80 8 110 22 C130 31 150 12 180 18 C195 21 205 14 214 22" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </h2>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" data-reveal-item>
           <span class="service-number">01</span>
           <h3 class="service-name">Social Media</h3>
           <p class="service-description">Content strategy, content creation, community management, and paid campaigns across Instagram, LinkedIn, TikTok, and YouTube.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-reveal-item>
           <span class="service-number">02</span>
           <h3 class="service-name">Video Production</h3>
           <p class="service-description">Reels, interviews, podcasts, promotional videos, and branded content.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-reveal-item>
           <span class="service-number">03</span>
           <h3 class="service-name">Email Marketing</h3>
           <p class="service-description">Campaigns, automations, CRM setup, and lead nurturing.</p>
@@ -114,27 +152,32 @@
   </section>
 
   <!-- WHY US: differentiators, USPs, stats or highlights -->
-  <section id="why-us" class="why-us">
+  <section id="why-us" class="why-us" data-reveal>
     <div class="container">
-      <h2 class="why-us-headline">Why brands choose Kicks</h2>
+      <h2 class="why-us-headline" data-reveal-heading>Why brands choose Kicks
+        <!-- Hand-drawn loop accent -->
+        <svg class="accent accent-whyus-doodle" viewBox="0 0 60 60" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 10 C42 10 50 20 46 32 C42 44 26 48 18 38 C11 29 16 16 28 16 C36 16 40 24 34 28" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </h2>
       <ul class="why-us-grid">
-        <li class="why-us-item">
+        <li class="why-us-item" data-reveal-item>
           <span class="why-us-index">01</span>
           <span class="why-us-label">End-to-end execution</span>
         </li>
-        <li class="why-us-item">
+        <li class="why-us-item" data-reveal-item>
           <span class="why-us-index">02</span>
           <span class="why-us-label">Fast turnaround</span>
         </li>
-        <li class="why-us-item">
+        <li class="why-us-item" data-reveal-item>
           <span class="why-us-index">03</span>
           <span class="why-us-label">Direct communication</span>
         </li>
-        <li class="why-us-item">
+        <li class="why-us-item" data-reveal-item>
           <span class="why-us-index">04</span>
           <span class="why-us-label">Transparent pricing</span>
         </li>
-        <li class="why-us-item">
+        <li class="why-us-item" data-reveal-item>
           <span class="why-us-index">05</span>
           <span class="why-us-label">Results-focused approach</span>
         </li>
@@ -143,59 +186,59 @@
   </section>
 
   <!-- WORK: portfolio/case studies grid -->
-  <section id="work" class="work">
+  <section id="work" class="work" data-reveal>
     <div class="container">
-      <h2 class="work-headline">Selected projects</h2>
+      <h2 class="work-headline" data-reveal-heading>Selected projects</h2>
       <div class="work-grid">
-        <article class="work-card">
+        <article class="work-card" data-reveal-item>
           <div class="work-media" data-video-id="1QioYN3ogtGZ_f2kMqUXS6ZYj4Jar802e">
             <!-- TODO: replace placeholder with real thumbnail frame from the Erste Social Finance video -->
             <span class="work-media-label">E</span>
             <button class="work-play" type="button" aria-label="Play Erste Social Finance video"></button>
           </div>
-          <h3 class="work-client">Erste Social Finance</h3>
+          <h3 class="work-client">Erste Social Finance<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Campaign video production for the Humanizing Impact Finance initiative.</p>
         </article>
 
-        <article class="work-card">
+        <article class="work-card" data-reveal-item>
           <div class="work-media" data-video-id="19VPjTex72fTitBTbrqcSmG7zHZF5AsAr">
             <!-- TODO: replace placeholder with real thumbnail frame from the Bitmovin video -->
             <span class="work-media-label">B</span>
             <button class="work-play" type="button" aria-label="Play Bitmovin video"></button>
           </div>
-          <h3 class="work-client">Bitmovin</h3>
+          <h3 class="work-client">Bitmovin<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Video production and LinkedIn content supporting continuous lead generation.</p>
         </article>
 
-        <article class="work-card">
+        <article class="work-card" data-reveal-item>
           <div class="work-media">
             <!-- TODO: assets pending — replace with The Club @ Modul University thumbnail/video -->
             <span class="work-media-label">C</span>
           </div>
-          <h3 class="work-client">The Club @ Modul University</h3>
+          <h3 class="work-client">The Club @ Modul University<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Built a 500+ member hospitality community through social media, paid ads, and email marketing.</p>
         </article>
 
-        <article class="work-card">
+        <article class="work-card" data-reveal-item>
           <div class="work-media">
             <!-- TODO: replace placeholder with real poster image (poster-kicks-1.jpg), no video for this card -->
             <span class="work-media-label">K</span>
           </div>
-          <h3 class="work-client">Kicks</h3>
+          <h3 class="work-client">Kicks<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Grew one of Vienna's largest football communities to 500+ members.</p>
         </article>
 
-        <article class="work-card">
+        <article class="work-card" data-reveal-item>
           <div class="work-media" data-video-id="1Hmr9TETGfVdzjdhewE_7jAkoPpFeeTtr">
             <!-- TODO: replace placeholder with real thumbnail frame from the Mastercard video -->
             <span class="work-media-label">M</span>
             <button class="work-play" type="button" aria-label="Play Mastercard video"></button>
           </div>
-          <h3 class="work-client">Mastercard</h3>
+          <h3 class="work-client">Mastercard<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Full production — from scenario and footage to post-production.</p>
         </article>
 
-        <article class="work-card">
+        <article class="work-card" data-reveal-item>
           <div class="work-media">
             <!-- TODO: assets pending — showcase tile, no video yet. Hand-drawn clapperboard mark, not a client initial -->
             <svg class="work-media-mark" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -203,7 +246,7 @@
               <path d="M14 34 L64 20 M24 31 L30 18 M38 27 L44 14 M52 23 L58 10" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="work-client">Cinematic Work</h3>
+          <h3 class="work-client">Cinematic Work<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Exploring visual style through short-form filmmaking.</p>
         </article>
       </div>
@@ -211,9 +254,9 @@
   </section>
 
   <!-- TEAM: team member cards/photos -->
-  <section id="team" class="team">
+  <section id="team" class="team" data-reveal>
     <div class="container">
-      <h2 class="team-headline">Meet the team
+      <h2 class="team-headline" data-reveal-heading>Meet the team
         <!-- Hand-drawn stick figure kicking a ball (brandbook figure motif) -->
         <svg class="accent accent-team-figure" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
           <circle cx="40" cy="16" r="9" stroke="currentColor" stroke-width="5" fill="none"/>
@@ -224,7 +267,7 @@
         </svg>
       </h2>
       <div class="team-grid">
-        <div class="team-member">
+        <div class="team-member" data-reveal-item>
           <div class="team-avatar">
             <!-- TODO: replace with Alex headshot -->
             <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -234,7 +277,7 @@
           <h3 class="team-name">Alex</h3>
           <p class="team-role">Project Management</p>
         </div>
-        <div class="team-member">
+        <div class="team-member" data-reveal-item>
           <div class="team-avatar team-avatar-alt">
             <!-- TODO: replace with Arina headshot -->
             <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +287,7 @@
           <h3 class="team-name">Arina</h3>
           <p class="team-role">Design</p>
         </div>
-        <div class="team-member">
+        <div class="team-member" data-reveal-item>
           <div class="team-avatar">
             <!-- TODO: replace with Yakov headshot -->
             <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -254,7 +297,7 @@
           <h3 class="team-name">Yakov</h3>
           <p class="team-role">Production &amp; Social Media</p>
         </div>
-        <div class="team-member">
+        <div class="team-member" data-reveal-item>
           <div class="team-avatar team-avatar-alt">
             <!-- TODO: replace with Gleb headshot -->
             <svg class="avatar-doodle" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -269,11 +312,21 @@
   </section>
 
   <!-- CTA: final call-to-action before footer, contact prompt -->
-  <section id="cta" class="cta">
+  <section id="cta" class="cta" data-reveal>
     <div class="container cta-inner">
-      <h2 class="cta-headline">Let's grow your brand.</h2>
-      <p class="cta-body">Book a free marketing audit and we'll show you where your biggest opportunities are.</p>
-      <a href="mailto:hello@kicks-vie.com?subject=Free%20Growth%20Audit%20Request" class="btn btn-primary">Book Your Free Audit</a>
+      <h2 class="cta-headline" data-reveal-heading>Let's grow your brand.</h2>
+      <p class="cta-body" data-reveal-item>Book a free marketing audit and we'll show you where your biggest opportunities are.</p>
+      <span class="cta-btn-wrap" data-reveal-item>
+        <a href="mailto:hello@kicks-vie.com?subject=Free%20Growth%20Audit%20Request" class="btn btn-primary">Book Your Free Audit</a>
+        <!-- Hand-drawn arrow pointing at the CTA button -->
+        <svg class="accent accent-cta-doodle" viewBox="0 0 90 70" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 8 C30 6 48 18 52 36 C55 48 50 56 40 58" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M40 58 L48 48 M40 58 L50 63" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div class="scatter-img-wrap scatter-img-cta" aria-hidden="true">
+        <img class="scatter-img" src="/assets/images/artboard-2.jpg" alt="" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -310,6 +363,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>
