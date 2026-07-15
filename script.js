@@ -103,7 +103,9 @@ var KicksMotion = (function () {
 })();
 
 /*
- * Click-to-load video facade (Google Drive embeds).
+ * Click-to-load video facade (Google Drive embeds). Shared by index.html and
+ * work.html — any element carrying [data-video-id] becomes a facade, so each
+ * page can style its own media container while reusing this one implementation.
  * No iframe is created until the user clicks — keeps initial page load light.
  */
 (function () {
@@ -123,7 +125,7 @@ var KicksMotion = (function () {
     media.replaceChildren(iframe);
   }
 
-  document.querySelectorAll('.work-media[data-video-id]').forEach((media) => {
+  document.querySelectorAll('[data-video-id]').forEach((media) => {
     media.addEventListener('click', () => {
       loadDriveVideo(media, media.dataset.videoId);
     });
@@ -270,20 +272,33 @@ var KicksMotion = (function () {
 /*
  * Placeholder-image guard: the scattered accents and trust-bar previews
  * reference asset files that get dropped in separately. Until an image
- * actually loads, its collapsed broken <img> would render as a stray 1px
- * border line — so borders stay transparent until a successful load marks
- * the image with .is-loaded (see the matching CSS rule).
+ * actually loads it stays fully hidden (no stray border line, no broken
+ * icon); on a successful load it gets .is-loaded and reveals. On error it
+ * is hidden outright. Applies on both index.html and work.html.
  */
 (function () {
-  document.querySelectorAll('.scatter-img, .trust-preview img').forEach((img) => {
+  document.querySelectorAll('.scatter-img, .trust-preview img, .work-poster').forEach((img) => {
     function markLoaded() {
       img.classList.add('is-loaded');
     }
 
-    if (img.complete && img.naturalWidth > 0) {
-      markLoaded();
+    function markFailed() {
+      img.style.display = 'none';
+      const wrap = img.closest('.scatter-img-wrap') || img.closest('.trust-preview');
+      if (wrap) {
+        wrap.style.display = 'none';
+      }
+    }
+
+    if (img.complete) {
+      if (img.naturalWidth > 0) {
+        markLoaded();
+      } else {
+        markFailed();
+      }
     } else {
       img.addEventListener('load', markLoaded);
+      img.addEventListener('error', markFailed);
     }
   });
 })();

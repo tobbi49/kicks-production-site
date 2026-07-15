@@ -623,13 +623,15 @@ button {
 }
 
 /* Asset guard: until the real image files land in /assets/images, a broken
-   img collapses to a bare border line — keep it invisible until it loads.
-   JS adds .is-loaded on successful load. Specificity is deliberately raised
-   above the per-position border-color overrides below. */
+   img would show a stray border line or a broken-image icon. Keep it fully
+   invisible until it loads; JS adds .is-loaded on a successful load (and
+   hides it outright on error). Specificity is deliberately raised above the
+   per-position border-color overrides below. */
 .scatter-img-wrap .scatter-img:not(.is-loaded),
 .trust-preview img:not(.is-loaded) {
   border-color: transparent !important;
   background-color: transparent;
+  visibility: hidden;
 }
 
 .scatter-img-about-1 {
@@ -652,13 +654,6 @@ button {
 
 .scatter-img-about-2 .scatter-img {
   border-color: rgba(255, 255, 255, 0.4);
-}
-
-.scatter-img-cta {
-  top: -4%;
-  right: 2%;
-  width: 220px;
-  transform: rotate(3deg);
 }
 
 @media (min-width: 768px) {
@@ -876,8 +871,10 @@ button {
 }
 
 .work-card {
+  display: block;
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
+  color: inherit;
 }
 
 .work-media {
@@ -1368,5 +1365,196 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .mascot-hero .mascot-ball {
     animation: none;
+  }
+}
+
+/* ==========================================================================
+   Portfolio page (work.html) — per-client sections with facade video grids
+   Uses CSS vars so each section adapts light/dark without per-card nth-child.
+   ========================================================================== */
+.portfolio-hero {
+  padding-block: calc(var(--header-height) + 3rem) 2rem;
+  background-color: var(--color-white);
+  color: var(--color-ink);
+}
+
+.portfolio-hero-title {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+.portfolio-hero-sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  max-width: 40ch;
+  margin-top: 1rem;
+  color: rgba(29, 29, 27, 0.7);
+}
+
+.portfolio-section {
+  --section-bg: var(--color-white);
+  --section-fg: var(--color-ink);
+  --section-line: rgba(29, 29, 27, 0.12);
+  --media-bg: var(--color-ink);
+  --media-fg: var(--color-white);
+  position: relative;
+  z-index: 1;
+  background-color: var(--section-bg);
+  color: var(--section-fg);
+  padding-block: 4rem;
+  border-top: 1px solid var(--section-line);
+}
+
+.portfolio-section--dark {
+  --section-bg: var(--color-ink);
+  --section-fg: var(--color-white);
+  --section-line: rgba(255, 255, 255, 0.14);
+  --media-bg: var(--color-white);
+  --media-fg: var(--color-ink);
+}
+
+.portfolio-head {
+  margin-bottom: 2.5rem;
+}
+
+.portfolio-name {
+  font-size: 2rem;
+  color: var(--section-fg);
+}
+
+.portfolio-desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin-top: 0.75rem;
+  color: var(--section-fg);
+  opacity: 0.85;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.portfolio-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--media-bg);
+  border: 1px solid var(--section-line);
+}
+
+.portfolio-media[data-video-id] {
+  cursor: pointer;
+}
+
+.portfolio-media iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Flat play button (circle + triangle, no shadow) — colors from section vars */
+.portfolio-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--media-fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.portfolio-play::after {
+  content: "";
+  margin-left: 5px;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent var(--media-bg);
+}
+
+@media (hover: hover) {
+  .portfolio-media[data-video-id]:hover .portfolio-play {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* Pending / coming-soon tiles */
+.portfolio-media--pending {
+  cursor: default;
+  background-color: transparent;
+  border-style: dashed;
+}
+
+.portfolio-media--pending span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--section-fg);
+  opacity: 0.45;
+}
+
+/* Poster image tiles (Kicks) — filled placeholder tile, image reveals on load */
+.portfolio-media--poster {
+  background-color: var(--media-bg);
+}
+
+.work-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.work-poster.is-loaded {
+  opacity: 1;
+}
+
+.portfolio-caption {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  color: var(--section-fg);
+  opacity: 0.85;
+}
+
+@media (min-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-title {
+    font-size: 3.5rem;
+  }
+
+  .portfolio-name {
+    font-size: 2.75rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-grid--single {
+    grid-template-columns: minmax(0, 720px);
   }
 }

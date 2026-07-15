@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 
   <!-- Motion system: GSAP + ScrollTrigger + Lenis smooth scroll (all deferred, execute in document order) -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
@@ -30,7 +30,7 @@
       <nav class="nav-links" aria-label="Primary">
         <ul class="flex gap-lg">
           <li><a href="#services">Services</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="work.html">Work</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#cta">Contact</a></li>
         </ul>
@@ -46,7 +46,7 @@
     <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
       <ul>
         <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
+        <li><a href="work.html">Work</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#cta">Contact</a></li>
       </ul>
@@ -60,7 +60,7 @@
       <p class="hero-subheadline">We help ambitious brands grow through social media, video production, and digital marketing.</p>
       <div class="hero-actions flex flex-wrap gap-md">
         <a href="#cta" class="btn btn-primary">Get Your Free Growth Audit</a>
-        <a href="#work" class="btn btn-secondary">View Our Work</a>
+        <a href="work.html" class="btn btn-secondary">View Our Work</a>
         <!-- Hand-drawn swirl arrow pointing at the primary CTA (brandbook arrow motif) -->
         <svg class="accent accent-hero-arrow" viewBox="0 0 120 120" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
           <path d="M102 14 C64 4 28 22 46 44 C60 60 88 50 78 33 C69 19 42 28 50 52 C56 71 44 86 26 94" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -229,58 +229,56 @@
         <path d="M52 160 C76 156 102 158 126 162 C138 164 148 163 156 160"/>
         <path d="M44 136 C52 134 60 140 61 148 C62 156 55 163 47 164 C39 165 32 158 31 150 C30 142 36 137 44 136 Z"/>
       </svg>
+      <!-- Cards link through to work.html for the full case studies + videos -->
       <div class="work-grid">
-        <article class="work-card" data-reveal-item>
-          <div class="work-media" data-video-id="1QioYN3ogtGZ_f2kMqUXS6ZYj4Jar802e">
+        <a class="work-card" href="work.html#erste" data-reveal-item>
+          <div class="work-media">
             <!-- TODO: replace placeholder with real thumbnail frame from the Erste Social Finance video -->
             <span class="work-media-label">E</span>
-            <button class="work-play" type="button" aria-label="Play Erste Social Finance video"></button>
           </div>
           <h3 class="work-client">Erste Social Finance<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Campaign video production for the Humanizing Impact Finance initiative.</p>
-        </article>
+        </a>
 
-        <article class="work-card" data-reveal-item>
-          <div class="work-media" data-video-id="19VPjTex72fTitBTbrqcSmG7zHZF5AsAr">
+        <a class="work-card" href="work.html#bitmovin" data-reveal-item>
+          <div class="work-media">
             <!-- TODO: replace placeholder with real thumbnail frame from the Bitmovin video -->
             <span class="work-media-label">B</span>
-            <button class="work-play" type="button" aria-label="Play Bitmovin video"></button>
           </div>
           <h3 class="work-client">Bitmovin<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Video production and LinkedIn content supporting continuous lead generation.</p>
-        </article>
+        </a>
 
-        <article class="work-card" data-reveal-item>
+        <a class="work-card" href="work.html#club" data-reveal-item>
           <div class="work-media">
-            <!-- TODO: assets pending — replace with The Club @ Modul University thumbnail/video -->
+            <!-- TODO: assets pending — replace with The Club @ Modul University thumbnail -->
             <span class="work-media-label">C</span>
           </div>
           <h3 class="work-client">The Club @ Modul University<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Built a 500+ member hospitality community through social media, paid ads, and email marketing.</p>
-        </article>
+        </a>
 
-        <article class="work-card" data-reveal-item>
+        <a class="work-card" href="work.html#kicks" data-reveal-item>
           <div class="work-media">
-            <!-- TODO: replace placeholder with real poster image (poster-kicks-1.jpg), no video for this card -->
+            <!-- TODO: replace placeholder with real poster image (poster-kicks-1.jpg) -->
             <span class="work-media-label">K</span>
           </div>
           <h3 class="work-client">Kicks<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Grew one of Vienna's largest football communities to 500+ members.</p>
-        </article>
+        </a>
 
-        <article class="work-card" data-reveal-item>
-          <div class="work-media" data-video-id="1Hmr9TETGfVdzjdhewE_7jAkoPpFeeTtr">
+        <a class="work-card" href="work.html#mastercard" data-reveal-item>
+          <div class="work-media">
             <!-- TODO: replace placeholder with real thumbnail frame from the Mastercard video -->
             <span class="work-media-label">M</span>
-            <button class="work-play" type="button" aria-label="Play Mastercard video"></button>
           </div>
           <h3 class="work-client">Mastercard<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Full production — from scenario and footage to post-production.</p>
-        </article>
+        </a>
 
-        <article class="work-card" data-reveal-item>
+        <a class="work-card" href="work.html#cinematic" data-reveal-item>
           <div class="work-media">
-            <!-- TODO: assets pending — showcase tile, no video yet. Hand-drawn clapperboard mark, not a client initial -->
+            <!-- TODO: assets pending — showcase tile. Hand-drawn clapperboard mark, not a client initial -->
             <svg class="work-media-mark" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <rect x="14" y="34" width="52" height="30" rx="2" stroke="currentColor" stroke-width="4" fill="none" stroke-linejoin="round"/>
               <path d="M14 34 L64 20 M24 31 L30 18 M38 27 L44 14 M52 23 L58 10" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
@@ -288,7 +286,7 @@
           </div>
           <h3 class="work-client">Cinematic Work<span class="work-arrow" aria-hidden="true">→</span></h3>
           <p class="work-description">Exploring visual style through short-form filmmaking.</p>
-        </article>
+        </a>
       </div>
     </div>
   </section>
@@ -381,9 +379,6 @@
           <path d="M40 58 L48 48 M40 58 L50 63" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
-      <div class="scatter-img-wrap scatter-img-cta" aria-hidden="true">
-        <img class="scatter-img" src="assets/images/artboard-2.jpg" alt="" loading="lazy">
-      </div>
       <!-- MASCOT v1 (generated) — to be replaced with hand-drawn SVG from designer, keep same viewBox/class structure -->
       <!-- Pose: celebration, both arms up, ball in the air. Self-draws when the CTA enters the viewport. -->
       <svg class="mascot mascot-cta" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -409,7 +404,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <ul>
           <li><a href="#services">Services</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="work.html">Work</a></li>
           <li><a href="#team">Team</a></li>
         </ul>
       </nav>
@@ -431,6 +426,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=5" defer></script>
+  <script src="script.js?v=6" defer></script>
 </body>
 </html>
