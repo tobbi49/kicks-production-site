@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=12">
 
   <!-- Motion system: GSAP + ScrollTrigger + Lenis smooth scroll (all deferred, execute in document order) -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
@@ -66,24 +66,24 @@
         <h2 class="portfolio-name" data-reveal-heading>Erste Social Finance</h2>
         <p class="portfolio-desc" data-reveal-item>Campaign video production for the Humanizing Impact Finance initiative.</p>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media" data-video-id="1QioYN3ogtGZ_f2kMqUXS6ZYj4Jar802e">
-            <!-- TODO: replace with real thumbnail frame from the Margit reel -->
-            <button class="portfolio-play" type="button" aria-label="Play Margit reel"></button>
-          </div>
-          <p class="portfolio-caption">Margit reel</p>
-        </div>
-        <!-- TODO: 3 more Erste video IDs pending from client — swap data-video-id in and drop the --pending state -->
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Video 2 — coming soon</span></div>
-        </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Video 3 — coming soon</span></div>
-        </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Video 4 — coming soon</span></div>
-        </div>
+      <!-- YouTube Shorts (vertical 9:16). Thumbnail only until click, then youtube-nocookie iframe. -->
+      <div class="pf-grid pf-grid--vertical">
+        <button class="yt-facade yt-vertical" type="button" data-yt="q-3uACLKlls" aria-label="Play Erste Social Finance video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/q-3uACLKlls/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <button class="yt-facade yt-vertical" type="button" data-yt="tf5rFoATrvs" aria-label="Play Erste Social Finance video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/tf5rFoATrvs/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <button class="yt-facade yt-vertical" type="button" data-yt="E3Q905tES3g" aria-label="Play Erste Social Finance video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/E3Q905tES3g/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <button class="yt-facade yt-vertical" type="button" data-yt="wWiiuffeYRw" aria-label="Play Erste Social Finance video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/wWiiuffeYRw/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </section>
@@ -95,24 +95,24 @@
         <h2 class="portfolio-name" data-reveal-heading>Bitmovin</h2>
         <p class="portfolio-desc" data-reveal-item>Video production and LinkedIn content supporting continuous lead generation.</p>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media" data-video-id="19VPjTex72fTitBTbrqcSmG7zHZF5AsAr">
-            <!-- TODO: replace with real thumbnail frame from the devoncroft video -->
-            <button class="portfolio-play" type="button" aria-label="Play Devoncroft video"></button>
-          </div>
-          <p class="portfolio-caption">Devoncroft</p>
-        </div>
-        <!-- TODO: 3 more Bitmovin video IDs pending from client — swap data-video-id in and drop the --pending state -->
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Video 2 — coming soon</span></div>
-        </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Video 3 — coming soon</span></div>
-        </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Video 4 — coming soon</span></div>
-        </div>
+      <!-- YouTube (16:9). Thumbnail only until click, then youtube-nocookie iframe. -->
+      <div class="pf-grid">
+        <button class="yt-facade" type="button" data-yt="MHfHJBbnoxc" aria-label="Play Bitmovin video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/MHfHJBbnoxc/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <button class="yt-facade" type="button" data-yt="LIaYrUsl5tc" aria-label="Play Bitmovin video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/LIaYrUsl5tc/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <button class="yt-facade" type="button" data-yt="z7turVfeg4s" aria-label="Play Bitmovin video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/z7turVfeg4s/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <button class="yt-facade" type="button" data-yt="5Wc7LQUU4mU" aria-label="Play Bitmovin video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/5Wc7LQUU4mU/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </section>
@@ -124,14 +124,12 @@
         <h2 class="portfolio-name" data-reveal-heading>The Club @ Modul University</h2>
         <p class="portfolio-desc" data-reveal-item>Built a 500+ member hospitality community through social media, paid ads, and email marketing.</p>
       </div>
-      <!-- TODO: assets pending for The Club @ Modul University — add real media cards when available -->
-      <div class="portfolio-grid">
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Case study — coming soon</span></div>
-        </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Coming soon</span></div>
-        </div>
+      <!-- Image gallery. onerror hides any item whose file is missing (no broken icons). -->
+      <div class="gallery-grid" data-reveal-item>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-1.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-2.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-3.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/club-use-4.png" alt="The Club @ Modul University" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
       </div>
     </div>
   </section>
@@ -143,25 +141,23 @@
         <h2 class="portfolio-name" data-reveal-heading>Kicks</h2>
         <p class="portfolio-desc" data-reveal-item>Grew one of Vienna's largest football communities to 500+ members.</p>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--poster">
-            <!-- TODO: real asset poster-kicks-1.jpg (drop into /assets/images) -->
-            <img class="work-poster" src="assets/images/poster-kicks-1.jpg" alt="Kicks football community" loading="lazy">
-          </div>
+      <!-- Mixed image + native-video gallery. Videos are preload="none" (no download until play);
+           onerror hides any image whose file is missing (no broken icons). -->
+      <div class="gallery-grid" data-reveal-item>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/kicks-use-1.jpg" alt="Kicks football community" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/kicks-use-2.jpg" alt="Kicks football community" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item">
+          <video class="gallery-media" controls muted playsinline preload="none" poster="assets/images/kicks-use-3-poster.jpg">
+            <source src="assets/images/kicks-use-3.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--poster">
-            <!-- TODO: real asset artboard-1.jpg (drop into /assets/images) -->
-            <img class="work-poster" src="assets/images/artboard-1.jpg" alt="Kicks community artwork" loading="lazy">
-          </div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/kicks-use-4.png" alt="Kicks community artwork" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        <div class="gallery-item">
+          <video class="gallery-media" controls muted playsinline preload="none" poster="assets/images/kicks-use-5-poster.jpg">
+            <source src="assets/images/kicks-use-5.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--poster">
-            <!-- TODO: real asset artboard-2.jpg (drop into /assets/images) -->
-            <img class="work-poster" src="assets/images/artboard-2.jpg" alt="Kicks community artwork" loading="lazy">
-          </div>
-        </div>
+        <div class="gallery-item"><img class="gallery-media" src="assets/images/kicks-use-6.png" alt="Kicks community artwork" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
       </div>
     </div>
   </section>
@@ -173,14 +169,12 @@
         <h2 class="portfolio-name" data-reveal-heading>Mastercard</h2>
         <p class="portfolio-desc" data-reveal-item>Full production — from scenario and footage to post-production.</p>
       </div>
-      <div class="portfolio-grid portfolio-grid--single">
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media" data-video-id="1Hmr9TETGfVdzjdhewE_7jAkoPpFeeTtr">
-            <!-- TODO: replace with real thumbnail frame from the Mastercard video -->
-            <button class="portfolio-play" type="button" aria-label="Play Mastercard video"></button>
-          </div>
-          <p class="portfolio-caption">Mastercard production</p>
-        </div>
+      <!-- YouTube Short (vertical 9:16). Thumbnail only until click, then youtube-nocookie iframe. -->
+      <div class="pf-grid pf-grid--single" data-reveal-item>
+        <button class="yt-facade yt-vertical" type="button" data-yt="0HokKHVi_NM" aria-label="Play Mastercard video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/0HokKHVi_NM/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </section>
@@ -192,14 +186,16 @@
         <h2 class="portfolio-name" data-reveal-heading>Cinematic Work</h2>
         <p class="portfolio-desc" data-reveal-item>Exploring visual style through short-form filmmaking.</p>
       </div>
-      <!-- TODO: assets pending for Cinematic Work — add real media cards when available -->
-      <div class="portfolio-grid">
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Showreel — coming soon</span></div>
-        </div>
-        <div class="portfolio-card" data-reveal-item>
-          <div class="portfolio-media portfolio-media--pending"><span>Coming soon</span></div>
-        </div>
+      <!-- YouTube (16:9). Thumbnail only until click, then youtube-nocookie iframe. -->
+      <div class="pf-grid">
+        <button class="yt-facade" type="button" data-yt="HD6o9JYa2EM" aria-label="Play cinematic video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/HD6o9JYa2EM/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <button class="yt-facade" type="button" data-yt="79gkynS10C0" aria-label="Play cinematic video">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/79gkynS10C0/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </section>
@@ -237,6 +233,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=6" defer></script>
+  <script src="script.js?v=7" defer></script>
 </body>
 </html>

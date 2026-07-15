@@ -1100,6 +1100,8 @@ button {
    CTA
    ========================================================================== */
 .cta {
+  position: relative;
+  overflow: hidden;
   background-color: var(--color-white);
   color: var(--color-ink);
   padding-block: 5rem;
@@ -1320,20 +1322,31 @@ button {
   color: var(--color-white);
 }
 
-/* CTA: celebration beside the button. */
+/* CTA: celebration in the right-side whitespace, vertically centred. Only
+   revealed at >=1024px, where the centred 640px content column leaves a wide
+   empty gutter on each side — so the figure never overlaps the copy or button
+   at any breakpoint. z-index 0 also keeps it behind the text as a safety net.
+   Stays hidden below 1024px (and thus under 768px). */
 .mascot-cta {
   display: none;
   position: absolute;
-  bottom: 3rem;
-  right: calc(50% - 340px);
-  width: 160px;
-  height: 160px;
+  top: 50%;
+  right: 2rem;
+  width: clamp(110px, 11vw, 150px);
+  height: clamp(110px, 11vw, 150px);
+  transform: translateY(-50%);
+  z-index: 0;
 }
 
 @media (min-width: 768px) {
   .mascot-hero,
   .mascot-marquee,
-  .mascot-work,
+  .mascot-work {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
   .mascot-cta {
     display: block;
   }
@@ -1556,5 +1569,145 @@ button {
 
   .portfolio-grid--single {
     grid-template-columns: minmax(0, 720px);
+  }
+}
+
+/* ==========================================================================
+   YouTube click-to-load facade + media galleries (work.html)
+   ========================================================================== */
+.pf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .pf-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pf-grid--vertical {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .pf-grid--vertical {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pf-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 340px;
+}
+
+/* Facade tile: real thumbnail + flat play button; iframe only after click */
+.yt-facade {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  background-color: var(--media-bg);
+  border: 1px solid var(--section-line);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.yt-facade.yt-vertical {
+  aspect-ratio: 9 / 16;
+}
+
+.yt-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.yt-facade iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.yt-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.yt-play::after {
+  content: "";
+  margin-left: 4px;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent var(--color-ink);
+}
+
+@media (hover: hover) {
+  .yt-facade:hover .yt-thumb {
+    transform: scale(1.03);
+  }
+
+  .yt-facade:hover .yt-play {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* Image / native-video gallery — masonry columns preserve each item's aspect */
+.gallery-grid {
+  column-count: 3;
+  column-gap: 1.25rem;
+}
+
+@media (max-width: 1023px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 479px) {
+  .gallery-grid {
+    column-count: 1;
+  }
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--section-line);
+  overflow: hidden;
+  background-color: var(--media-bg);
+  line-height: 0;
+}
+
+.gallery-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.35s ease;
+}
+
+@media (hover: hover) {
+  .gallery-item:hover .gallery-media {
+    transform: scale(1.02);
   }
 }

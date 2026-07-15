@@ -103,32 +103,42 @@ var KicksMotion = (function () {
 })();
 
 /*
- * Click-to-load video facade (Google Drive embeds). Shared by index.html and
- * work.html — any element carrying [data-video-id] becomes a facade, so each
- * page can style its own media container while reusing this one implementation.
- * No iframe is created until the user clicks — keeps initial page load light.
+ * Click-to-load YouTube facade. Shared by index.html and work.html — any
+ * element carrying [data-yt] renders the auto-thumbnail + a play button, and
+ * only swaps in a youtube-nocookie iframe on click. No iframe (and no YouTube
+ * request beyond the static thumbnail) until the user chooses to play, so the
+ * page stays fast. maxresdefault thumbnails fall back to hqdefault if missing.
  */
 (function () {
-  function loadDriveVideo(media, fileId) {
-    if (media.classList.contains('is-playing')) {
+  function loadYouTube(facade, videoId) {
+    if (facade.classList.contains('is-playing')) {
       return;
     }
 
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
-    iframe.width = '100%';
-    iframe.height = '100%';
-    iframe.allow = 'autoplay';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
+    iframe.title = 'Video player';
+    iframe.allow = 'accelerated-sensors; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
 
-    media.classList.add('is-playing');
-    media.replaceChildren(iframe);
+    facade.classList.add('is-playing');
+    facade.replaceChildren(iframe);
   }
 
-  document.querySelectorAll('[data-video-id]').forEach((media) => {
-    media.addEventListener('click', () => {
-      loadDriveVideo(media, media.dataset.videoId);
-    });
+  document.querySelectorAll('[data-yt]').forEach((facade) => {
+    const videoId = facade.dataset.yt;
+
+    // Thumbnail fallback: some videos (esp. Shorts) lack a maxres frame.
+    const thumb = facade.querySelector('.yt-thumb');
+    if (thumb) {
+      thumb.addEventListener('error', function onErr() {
+        thumb.removeEventListener('error', onErr);
+        thumb.src = 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg';
+      });
+    }
+
+    facade.addEventListener('click', () => loadYouTube(facade, videoId));
   });
 })();
 
