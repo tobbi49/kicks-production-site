@@ -237,7 +237,7 @@ var KicksMotion = (function () {
   const gsap = KicksMotion.gsap;
   const ScrollTrigger = KicksMotion.ScrollTrigger;
 
-  document.querySelectorAll('.accent').forEach((svg) => {
+  document.querySelectorAll('.accent, .mascot:not(.mascot-hero)').forEach((svg) => {
     const shapes = svg.querySelectorAll('path, circle, rect, polyline, polygon');
     if (!shapes.length) {
       return;
@@ -264,6 +264,62 @@ var KicksMotion = (function () {
         });
       }
     });
+  });
+})();
+
+/*
+ * Placeholder-image guard: the scattered accents and trust-bar previews
+ * reference asset files that get dropped in separately. Until an image
+ * actually loads, its collapsed broken <img> would render as a stray 1px
+ * border line — so borders stay transparent until a successful load marks
+ * the image with .is-loaded (see the matching CSS rule).
+ */
+(function () {
+  document.querySelectorAll('.scatter-img, .trust-preview img').forEach((img) => {
+    function markLoaded() {
+      img.classList.add('is-loaded');
+    }
+
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+    } else {
+      img.addEventListener('load', markLoaded);
+    }
+  });
+})();
+
+/*
+ * Hero mascot: self-draws on page load (not scroll), sequenced to start as
+ * the headline word reveal is finishing (~1.2s). Under reduced motion the
+ * dashoffset is never touched, so the mascot renders fully drawn and static.
+ */
+(function () {
+  if (!KicksMotion.enabled) {
+    return;
+  }
+
+  const gsap = KicksMotion.gsap;
+  const mascot = document.querySelector('.mascot-hero');
+
+  if (!mascot) {
+    return;
+  }
+
+  const shapes = mascot.querySelectorAll('path');
+  shapes.forEach((shape) => {
+    const length = shape.getTotalLength();
+    shape.style.strokeDasharray = length;
+    shape.style.strokeDashoffset = length;
+  });
+
+  gsap.set(shapes, { willChange: 'stroke-dashoffset' });
+  gsap.to(shapes, {
+    strokeDashoffset: 0,
+    duration: 1.3,
+    ease: 'power1.inOut',
+    stagger: 0.1,
+    delay: 1.2,
+    onComplete: () => gsap.set(shapes, { willChange: 'auto' })
   });
 })();
 

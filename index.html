@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 
   <!-- Motion system: GSAP + ScrollTrigger + Lenis smooth scroll (all deferred, execute in document order) -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
@@ -68,6 +68,21 @@
         </svg>
       </div>
     </div>
+
+    <!-- MASCOT v1 (generated) — to be replaced with hand-drawn SVG from designer, keep same viewBox/class structure -->
+    <!-- Pose: running in mid-kick. Self-draws on load (~1.2s after headline reveal). Ball group has idle tilt. -->
+    <svg class="mascot mascot-hero" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M96 22 C106 20 115 27 116 37 C117 47 109 56 99 57 C89 58 81 50 80 40 C79 30 87 23 96 22 Z"/>
+      <path d="M97 58 C94 73 90 88 85 103"/>
+      <path d="M95 68 C107 63 118 57 128 49"/>
+      <path d="M94 70 C84 77 75 82 65 85"/>
+      <path d="M85 103 C77 117 69 131 62 146"/>
+      <path d="M85 103 C98 112 111 122 123 133"/>
+      <g class="mascot-ball">
+        <path d="M143 130 C152 128 161 134 162 143 C163 152 156 160 147 161 C138 162 130 155 129 146 C128 137 135 131 143 130 Z"/>
+        <path d="M140 141 C144 138 149 138 152 142 C151 147 147 150 142 149 Z"/>
+      </g>
+    </svg>
   </section>
 
   <!-- TRUST BAR: logos of clients/brands worked with -->
@@ -78,17 +93,17 @@
         <li class="trust-name-item" data-reveal-item>
           Erste Social Finance
           <!-- TODO: swap placeholder preview for real Erste Social Finance work frame -->
-          <span class="trust-preview"><img src="/assets/images/poster-kicts-1.jpg" alt="" loading="lazy"></span>
+          <span class="trust-preview"><img src="assets/images/poster-kicks-1.jpg" alt="" loading="lazy"></span>
         </li>
         <li class="trust-name-item" data-reveal-item>
           Bitmovin
           <!-- TODO: swap placeholder preview for real Bitmovin work frame -->
-          <span class="trust-preview"><img src="/assets/images/artboard-1.jpg" alt="" loading="lazy"></span>
+          <span class="trust-preview"><img src="assets/images/artboard-1.jpg" alt="" loading="lazy"></span>
         </li>
         <li class="trust-name-item" data-reveal-item>
           The Club @ Modul University
           <!-- TODO: swap placeholder preview for real The Club @ Modul University work frame -->
-          <span class="trust-preview"><img src="/assets/images/artboard-2.jpg" alt="" loading="lazy"></span>
+          <span class="trust-preview"><img src="assets/images/artboard-2.jpg" alt="" loading="lazy"></span>
         </li>
       </ul>
     </div>
@@ -106,19 +121,32 @@
         <path d="M60 60 C60 48 76 46 80 58 C84 72 66 82 52 74 C36 65 40 42 58 34 C80 24 102 42 98 66 C94 92 64 104 40 92" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <div class="scatter-img-wrap scatter-img-about-1" aria-hidden="true">
-        <img class="scatter-img" src="/assets/images/artboard-1.jpg" alt="" loading="lazy">
+        <img class="scatter-img" src="assets/images/artboard-1.jpg" alt="" loading="lazy">
       </div>
       <div class="scatter-img-wrap scatter-img-about-2" aria-hidden="true">
-        <img class="scatter-img" src="/assets/images/poster-kicts-1.jpg" alt="" loading="lazy">
+        <img class="scatter-img" src="assets/images/poster-kicks-1.jpg" alt="" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- MARQUEE: full-width auto-scrolling text band, pure CSS loop -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item">social media ✳ video production ✳ email marketing ✳ kicks ✳</span>
-      <span class="marquee-item">social media ✳ video production ✳ email marketing ✳ kicks ✳</span>
+    <!-- MASCOT v1 (generated) — to be replaced with hand-drawn SVG from designer, keep same viewBox/class structure -->
+    <!-- Pose: dribbling, pinned at the left edge as if chasing the scrolling text. -->
+    <svg class="mascot mascot-marquee" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M92 30 C102 28 111 35 112 45 C113 55 105 63 95 64 C85 65 78 57 77 47 C76 37 83 31 92 30 Z"/>
+      <path d="M94 65 C92 80 90 94 88 108"/>
+      <path d="M92 75 C103 72 112 67 120 60"/>
+      <path d="M92 77 C82 81 73 83 64 82"/>
+      <path d="M88 108 C81 122 73 134 64 146"/>
+      <path d="M88 108 C97 120 105 132 110 146"/>
+      <path d="M120 148 C129 146 137 152 138 160 C139 169 132 176 124 177 C115 178 108 171 107 163 C106 154 112 149 120 148 Z"/>
+    </svg>
+    <div class="marquee-viewport">
+      <div class="marquee-track">
+        <span class="marquee-item">social media ✳ video production ✳ email marketing ✳ kicks ✳</span>
+        <span class="marquee-item">social media ✳ video production ✳ email marketing ✳ kicks ✳</span>
+      </div>
     </div>
   </div>
 
@@ -189,6 +217,18 @@
   <section id="work" class="work" data-reveal>
     <div class="container">
       <h2 class="work-headline" data-reveal-heading>Selected projects</h2>
+      <!-- MASCOT v1 (generated) — to be replaced with hand-drawn SVG from designer, keep same viewBox/class structure -->
+      <!-- Pose: sitting/leaning back, watching the portfolio grid. -->
+      <svg class="mascot mascot-work" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M76 60 C86 58 95 65 96 75 C97 85 89 93 79 94 C69 95 62 87 61 77 C60 67 67 61 76 60 Z"/>
+        <path d="M80 95 C86 106 91 116 95 127"/>
+        <path d="M84 104 C73 111 63 120 56 131"/>
+        <path d="M88 112 C99 116 110 121 119 128"/>
+        <path d="M95 127 C108 128 121 131 133 130 C140 137 143 146 143 155"/>
+        <path d="M95 129 C106 133 116 139 124 148 C127 153 128 158 128 163"/>
+        <path d="M52 160 C76 156 102 158 126 162 C138 164 148 163 156 160"/>
+        <path d="M44 136 C52 134 60 140 61 148 C62 156 55 163 47 164 C39 165 32 158 31 150 C30 142 36 137 44 136 Z"/>
+      </svg>
       <div class="work-grid">
         <article class="work-card" data-reveal-item>
           <div class="work-media" data-video-id="1QioYN3ogtGZ_f2kMqUXS6ZYj4Jar802e">
@@ -307,6 +347,23 @@
           <h3 class="team-name">Gleb</h3>
           <p class="team-role">Digital Marketing</p>
         </div>
+        <div class="team-member team-member-mascot" data-reveal-item>
+          <div class="team-avatar">
+            <!-- MASCOT v1 (generated) — to be replaced with hand-drawn SVG from designer, keep same viewBox/class structure -->
+            <!-- Pose: standing with ball at feet — playful "5th team member" hiring wink. -->
+            <svg class="mascot avatar-doodle mascot-team" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M98 38 C108 36 117 43 118 53 C119 63 111 71 101 72 C91 73 84 65 83 55 C82 45 89 39 98 38 Z"/>
+              <path d="M100 73 C100 88 100 102 99 116"/>
+              <path d="M99 82 C89 89 81 97 75 106"/>
+              <path d="M100 82 C110 89 118 96 124 104"/>
+              <path d="M99 116 C93 130 87 143 83 157"/>
+              <path d="M99 116 C105 130 110 143 113 157"/>
+              <path d="M134 156 C142 154 149 160 150 168 C151 176 144 182 137 183 C129 184 123 177 122 169 C121 161 127 157 134 156 Z"/>
+            </svg>
+          </div>
+          <h3 class="team-name">you?</h3>
+          <p class="team-role">Join the club</p>
+        </div>
       </div>
     </div>
   </section>
@@ -325,8 +382,19 @@
         </svg>
       </span>
       <div class="scatter-img-wrap scatter-img-cta" aria-hidden="true">
-        <img class="scatter-img" src="/assets/images/artboard-2.jpg" alt="" loading="lazy">
+        <img class="scatter-img" src="assets/images/artboard-2.jpg" alt="" loading="lazy">
       </div>
+      <!-- MASCOT v1 (generated) — to be replaced with hand-drawn SVG from designer, keep same viewBox/class structure -->
+      <!-- Pose: celebration, both arms up, ball in the air. Self-draws when the CTA enters the viewport. -->
+      <svg class="mascot mascot-cta" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M96 62 C106 60 115 67 116 77 C117 87 109 95 99 96 C89 97 82 89 81 79 C80 69 87 63 96 62 Z"/>
+        <path d="M98 97 C98 111 97 124 96 137"/>
+        <path d="M97 104 C87 96 79 86 73 74"/>
+        <path d="M99 104 C109 95 117 85 124 74"/>
+        <path d="M96 137 C89 150 83 162 79 174"/>
+        <path d="M96 137 C103 150 109 162 113 174"/>
+        <path d="M136 20 C144 18 151 24 152 32 C153 40 146 47 138 48 C130 49 124 42 123 34 C122 26 128 21 136 20 Z"/>
+      </svg>
     </div>
   </section>
 
@@ -363,6 +431,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=4" defer></script>
+  <script src="script.js?v=5" defer></script>
 </body>
 </html>

@@ -441,6 +441,7 @@ button {
    Hero
    ========================================================================== */
 .hero {
+  position: relative;
   min-height: 100svh;
   display: flex;
   align-items: center;
@@ -451,6 +452,11 @@ button {
 
 .hero-inner {
   max-width: 760px;
+}
+
+/* Keep buttons their natural height next to the taller arrow accent */
+.hero-actions {
+  align-items: center;
 }
 
 .hero-headline {
@@ -616,6 +622,16 @@ button {
   background-color: var(--color-white);
 }
 
+/* Asset guard: until the real image files land in /assets/images, a broken
+   img collapses to a bare border line — keep it invisible until it loads.
+   JS adds .is-loaded on successful load. Specificity is deliberately raised
+   above the per-position border-color overrides below. */
+.scatter-img-wrap .scatter-img:not(.is-loaded),
+.trust-preview img:not(.is-loaded) {
+  border-color: transparent !important;
+  background-color: transparent;
+}
+
 .scatter-img-about-1 {
   top: 8%;
   right: 4%;
@@ -657,11 +673,15 @@ button {
 .marquee {
   position: relative;
   z-index: 1;
-  overflow: hidden;
   background-color: var(--color-ink);
   border-top: 1px solid var(--color-white);
   border-bottom: 1px solid var(--color-white);
   padding-block: 0.75rem;
+}
+
+/* Clipping lives on the inner viewport so the mascot can stand above the strip */
+.marquee-viewport {
+  overflow: hidden;
 }
 
 .marquee-track {
@@ -1074,7 +1094,7 @@ button {
   }
 
   .team-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
   }
 }
@@ -1246,5 +1266,107 @@ button {
     width: 100%;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(29, 29, 27, 0.12);
+  }
+}
+
+/* ==========================================================================
+   Mascot — recurring hand-drawn stick-figure footballer
+   Strokes are CSS-driven (not inline attrs) so designer SVG swaps stay
+   drop-in: keep the same viewBox (0 0 200 200) and class structure.
+   ========================================================================== */
+.mascot {
+  pointer-events: none;
+  color: var(--color-ink);
+}
+
+.mascot path {
+  stroke: currentColor;
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Hero: running mid-kick, bottom-right whitespace. Hidden under 768px. */
+.mascot-hero {
+  display: none;
+  position: absolute;
+  right: 5vw;
+  bottom: 8%;
+  width: 215px;
+  height: 215px;
+  z-index: 1;
+}
+
+/* Marquee: dribbling at the left edge, standing on top of the strip so the
+   figure stays legible instead of overlapping the scrolling text. */
+.mascot-marquee {
+  display: none;
+  position: absolute;
+  left: 1.25rem;
+  bottom: calc(100% - 30px);
+  width: 96px;
+  height: 96px;
+  z-index: 2;
+  color: var(--color-white);
+}
+
+/* Work: sitting, watching the grid from beside the heading (dark section). */
+.mascot-work {
+  display: none;
+  position: absolute;
+  top: 4rem;
+  right: 6vw;
+  width: 140px;
+  height: 140px;
+  color: var(--color-white);
+}
+
+/* CTA: celebration beside the button. */
+.mascot-cta {
+  display: none;
+  position: absolute;
+  bottom: 3rem;
+  right: calc(50% - 340px);
+  width: 160px;
+  height: 160px;
+}
+
+@media (min-width: 768px) {
+  .mascot-hero,
+  .mascot-marquee,
+  .mascot-work,
+  .mascot-cta {
+    display: block;
+  }
+}
+
+/* Team mascot lives inside the avatar circle and follows .avatar-doodle
+   sizing/color, so it stays visible on mobile like the rest of the grid. */
+
+/* Idle motion (hero only): gentle tilt on the ball. Starts after the
+   self-draw finishes. Disabled under reduced motion. */
+.mascot-ball {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.mascot-hero .mascot-ball {
+  animation: mascot-ball-tilt 2.4s ease-in-out 3s infinite alternate;
+}
+
+@keyframes mascot-ball-tilt {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot-hero .mascot-ball {
+    animation: none;
   }
 }
