@@ -1696,6 +1696,10 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
+  /* Don't stretch the shorter posters' frames to the tallest one — each frame
+     hugs its own image so no empty white strip shows below (posters vary in
+     aspect ratio). */
+  align-items: start;
 }
 
 .gallery-grid--trio .gallery-item {
